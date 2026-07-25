@@ -114,11 +114,50 @@ function initDonut() {
   drawObserver.observe(svg);
 }
 
+/* ============================================
+   Pause heavy background animation when tab hidden
+   ============================================ */
+
+function initVisibilityPause() {
+  document.addEventListener('visibilitychange', () => {
+    document.body.classList.toggle('bg-paused', document.hidden);
+  });
+}
+
+/* ============================================
+   Back-to-top button
+   ============================================ */
+
+function initBackToTop() {
+  const btn = document.createElement('button');
+  btn.className = 'back-to-top';
+  btn.setAttribute('aria-label', 'Back to top');
+  btn.type = 'button';
+  btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>';
+  document.body.appendChild(btn);
+
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    requestAnimationFrame(() => {
+      btn.classList.toggle('is-visible', window.scrollY > 600);
+      ticking = false;
+    });
+    ticking = true;
+  });
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
 function init() {
   initRevealObserver();
   initTabs();
   initDonut();
   initPricingCalculator();
+  initVisibilityPause();
+  initBackToTop();
 }
 
 if (document.readyState === 'loading') {

@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Roadmap — Nypples Industries</title>
+  <meta name="description" content="Product roadmap from Q3 2026 foundation through Q3 2027 scale-up: Ascend expansion, custom LoRA training, RAG as a service, Series A.">
   <link rel="icon" type="image/png" href="images/logo.png">
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/layout.css">
@@ -17,18 +18,18 @@
   <div id="app">
     <main>
 
-      <section class="section">
-        <div class="container">
-          <div class="section-header reveal">
-            <div class="accent-line"></div>
-            <h2 class="section-title">Product Roadmap</h2>
-            <p class="section-subtitle">Our path from first deployment to full-spectrum European AI infrastructure provider.</p>
+      <section class="section section--accent-cyan">
+        <div class="container container--narrow">
+          <div class="section-header is-numbered reveal">
+            <span class="section-index">01 / Roadmap</span>
+            <h2 class="section-title">From first deployment to European AI backbone.</h2>
+            <p class="section-subtitle">Five phases across four quarters &mdash; from 20 Ascend nodes to multi-region European inference platform.</p>
           </div>
 
           <div class="timeline">
 
-            <div class="timeline-item reveal">
-              <div class="timeline-date">Q3 2026 — Current</div>
+            <div class="timeline-item is-current reveal">
+              <div class="timeline-date">Q3 2026</div>
               <h3 class="timeline-title">Phase 1: Foundation</h3>
               <ul class="timeline-list">
                 <li>20x Ascend 910C nodes deployed at our Trento datacenter</li>
@@ -44,7 +45,7 @@
               <div class="timeline-date">Q4 2026</div>
               <h3 class="timeline-title">Phase 1.5: Expansion &amp; Kimi K3</h3>
               <ul class="timeline-list">
-                <li><strong>Kimi K3 launch — day-one support.</strong> Moonshot AI's next flagship model deployed on release day</li>
+                <li><strong>Kimi K3 launch &mdash; day-one support.</strong> Moonshot AI's next flagship model deployed on release day</li>
                 <li>Real-time tier expands from 500 to 1,000 concurrent slots</li>
                 <li>Qwen3.7-Max added to model catalog with Premium availability</li>
                 <li>Batch RAG pipeline beta: ingest &rarr; chunk &rarr; embed &rarr; retrieve &rarr; generate</li>
@@ -69,7 +70,7 @@
               <div class="timeline-date">Q2 2027</div>
               <h3 class="timeline-title">Phase 2.5: Enterprise Features</h3>
               <ul class="timeline-list">
-                <li><strong>On-premise deployment option:</strong> "Nypples-in-a-box" — pre-configured Ascend rack + software stack for enterprises running in their own datacenters. One-time license + annual support</li>
+                <li><strong>On-premise deployment option:</strong> "Nypples-in-a-box" &mdash; pre-configured Ascend rack + software stack for enterprises running in their own datacenters. One-time license + annual support</li>
                 <li><strong>RAG pipeline as a service:</strong> Fully managed retrieval-augmented generation. Upload documents, we handle chunking, embedding, indexing, retrieval, and answer generation via flagship models</li>
                 <li>SOC 2 Type II audit process initiated</li>
                 <li>EU AI Act readiness assessment published. High-risk classification guidance for customers</li>
@@ -96,35 +97,49 @@
 
       <div class="gradient-divider"></div>
 
-      <section class="section">
+      <section class="section section--accent-purple">
         <div class="container">
-          <div class="section-header reveal">
-            <div class="accent-line"></div>
-            <h2 class="section-title">Long-Term Vision</h2>
+          <div class="section-header is-numbered reveal">
+            <span class="section-index">02 / Vision</span>
+            <h2 class="section-title">Long-term vision.</h2>
+            <p class="section-subtitle">Where Nypples is heading beyond Series A.</p>
           </div>
 
-          <div class="feature-grid stagger">
-            <div class="feature-card reveal">
-              <div class="feature-card-icon purple">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18"/><path d="M12 3a14 14 0 0 0 0 18"/></svg>
+          <div class="bento stagger">
+            <div class="bento-card reveal bento--half">
+              <span class="bento-eyebrow">Network</span>
+              <h3>Pan-European edge by 2028</h3>
+              <p>5+ datacenter locations across the EU providing &lt;10ms latency to 95% of the European population. Full geographic redundancy with automatic failover.</p>
+              <div class="bento-footer">
+                <span class="badge badge-cyan">5+ DCs</span>
+                <span class="badge badge-purple">&lt;10ms p95</span>
               </div>
-              <h3>Pan-European Edge Network</h3>
-              <p>By 2028, 5+ datacenter locations across the EU providing &lt;10ms latency to 95% of the European population. Full geographic redundancy with automatic failover.</p>
             </div>
-            <div class="feature-card reveal reveal-delay-1">
-              <div class="feature-card-icon cyan">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="6" width="14" height="12" rx="2"/><path d="M9 6V4h6v2"/><path d="M9 10h6"/><path d="M9 13h4"/><circle cx="17" cy="14" r="1.5" fill="currentColor"/></svg>
-              </div>
-              <h3>European Model Foundry</h3>
+            <div class="bento-card reveal reveal-delay-1 bento--half">
+              <span class="bento-eyebrow">Foundry</span>
+              <h3>European model hosting partner</h3>
               <p>We intend to become the premier hosting partner for European-developed open-weight models. If a European research lab releases a model, Nypples will have it available for GDPR-compliant inference within 48 hours.</p>
-            </div>
-            <div class="feature-card reveal reveal-delay-2">
-              <div class="feature-card-icon gold">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a2 2 0 0 0 3-3"/></svg>
+              <div class="bento-footer">
+                <span class="badge badge-green">48h SLA</span>
               </div>
-              <h3>Strategic Huawei Partnership</h3>
-              <p>As Huawei's first European GPU partner, we have privileged access to Ascend hardware, engineering support, and joint go-to-market opportunities. Our success validates the Ascend ecosystem for European enterprise AI.</p>
             </div>
+            <div class="bento-card reveal reveal-delay-2 bento--full">
+              <span class="bento-eyebrow">Partnership</span>
+              <h3>Huawei's first European GPU partner.</h3>
+              <p>As Huawei's first European GPU partner, we have privileged access to Ascend hardware, engineering support, and joint go-to-market opportunities. Our success validates the Ascend ecosystem for European enterprise AI &mdash; proving that sovereign inference doesn't require NVIDIA silicon or US cloud hyperscalers.</p>
+              <div class="bento-footer">
+                <span class="badge badge-gold">Ascend 910C &rarr; 920</span>
+                <span class="badge badge-cyan">Joint GTM</span>
+                <span class="badge badge-purple">Reference architecture</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cta-center reveal">
+            <a href="infrastructure.html" class="btn btn-secondary">
+              <span>Explore the infrastructure</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
           </div>
         </div>
       </section>

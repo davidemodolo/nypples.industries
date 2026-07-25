@@ -23,7 +23,7 @@ body {
 }
 
 a {
-  color: var(--neon-cyan);
+  color: var(--accent-bright);
   text-decoration: none;
   transition: color var(--transition-fast);
 }
@@ -52,7 +52,59 @@ table {
   width: 100%;
 }
 
-/* Layered atmospheric background */
+/* ============================================
+   Global focus ring — keyboard a11y
+   ============================================ */
+
+:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  border-radius: var(--radius-xs);
+}
+
+/* Form inputs already manage their own focus shadow */
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.25);
+}
+
+/* ============================================
+   Selection + scrollbar polish
+   ============================================ */
+
+::selection {
+  background: rgba(var(--accent-rgb), 0.3);
+  color: var(--text-primary);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 100px;
+  border: 2px solid var(--bg-deep);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--accent-rgb), 0.35);
+}
+
+html {
+  scrollbar-color: rgba(255, 255, 255, 0.08) var(--bg-deep);
+  scrollbar-width: thin;
+}
+
+/* ============================================
+   Layered atmospheric background
+   ============================================ */
 
 body::before {
   content: '';
@@ -84,12 +136,19 @@ body::after {
   -webkit-mask-image: radial-gradient(ellipse 100% 80% at 50% 0%, #000 30%, transparent 90%);
 }
 
+/* Pause heavy repaints when tab is hidden — toggled by JS */
+body.bg-paused::before {
+  animation-play-state: paused;
+}
+
 @keyframes bg-drift {
   0%   { transform: translate3d(0, 0, 0) scale(1); }
   100% { transform: translate3d(-2%, 1%, 0) scale(1.04); }
 }
 
-/* Disclaimer bar */
+/* ============================================
+   Disclaimer bar
+   ============================================ */
 
 .disclaimer-bar {
   background:
@@ -127,7 +186,9 @@ body::after {
   text-decoration: underline;
 }
 
-/* Container */
+/* ============================================
+   Containers
+   ============================================ */
 
 .container {
   max-width: var(--container-max);
@@ -137,7 +198,12 @@ body::after {
   z-index: 1;
 }
 
-/* Header */
+.container--narrow { max-width: var(--container-narrow); }
+.container--wide   { max-width: var(--container-wide); }
+
+/* ============================================
+   Header
+   ============================================ */
 
 .site-header {
   position: sticky;
@@ -245,12 +311,26 @@ body::after {
   background: rgba(255, 255, 255, 0.06);
 }
 
-/* Sections */
+/* ============================================
+   Sections — editorial rhythm
+   ============================================ */
 
 .section {
-  padding: 96px 0;
+  padding: var(--section-pad-y) 0;
   position: relative;
   z-index: 1;
+}
+
+.section--tight {
+  padding: var(--section-pad-y-tight) 0;
+}
+
+.section--flush-top {
+  padding-top: 0;
+}
+
+.section--flush-bottom {
+  padding-bottom: 0;
 }
 
 .section-title {
@@ -267,7 +347,79 @@ body::after {
   max-width: 620px;
 }
 
-/* Gradient divider */
+/* ============================================
+   Section header — numbered editorial style
+   ============================================ */
+
+.section-header {
+  margin-bottom: 48px;
+  max-width: 720px;
+}
+
+.section-header .accent-line {
+  width: 40px;
+  height: 2px;
+  background: var(--gradient-accent);
+  border-radius: 2px;
+  margin-bottom: 18px;
+  position: relative;
+}
+
+.section-header .accent-line::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -2px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+}
+
+/* Numbered variant — "01 / Compute Infrastructure" */
+.section-header.is-numbered {
+  max-width: none;
+}
+
+.section-header.is-numbered .accent-line {
+  display: none;
+}
+
+.section-index {
+  display: block;
+  width: fit-content;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent-bright);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.section-index::after {
+  content: '';
+  display: inline-block;
+  width: 40px;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.4;
+  margin-left: 14px;
+  vertical-align: middle;
+}
+
+.section-header.is-numbered .section-title {
+  margin-bottom: 10px;
+}
+
+.section-header.is-numbered .section-subtitle {
+  margin-top: 0;
+}
+
+/* ============================================
+   Gradient divider
+   ============================================ */
 
 .gradient-divider {
   height: 1px;
@@ -291,13 +443,42 @@ body::after {
   box-shadow: 0 0 10px var(--neon-cyan);
 }
 
-/* Footer */
+/* ============================================
+   Table wrap — horizontal scroll on small screens
+   ============================================ */
+
+.table-wrap {
+  overflow-x: auto;
+  margin: 0 -24px;
+  padding: 0 24px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-wrap::-webkit-scrollbar {
+  height: 6px;
+}
+
+.table-wrap .data-table {
+  min-width: 520px;
+}
+
+/* ============================================
+   Utility: centered CTA container
+   ============================================ */
+
+.cta-center {
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* ============================================
+   Footer
+   ============================================ */
 
 .site-footer {
   border-top: 1px solid var(--border-subtle);
   background: linear-gradient(180deg, transparent, rgba(139, 92, 246, 0.03));
-  padding: 48px 0 40px;
-  text-align: center;
+  padding: 56px 0 32px;
   color: var(--text-muted);
   font-size: 0.83rem;
   line-height: 1.8;
@@ -317,33 +498,136 @@ body::after {
   opacity: 0.5;
 }
 
-.site-footer .footer-links {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  list-style: none;
-  margin-bottom: 18px;
-  flex-wrap: wrap;
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 36px;
 }
 
-.site-footer .footer-links a {
+.footer-col h4 {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   color: var(--text-secondary);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col li {
+  margin-bottom: 6px;
+}
+
+.footer-col a {
+  color: var(--text-muted);
   font-size: 0.83rem;
-  padding: 4px 12px;
-  border-radius: var(--radius-sm);
-  transition: all var(--transition-fast);
+  transition: color var(--transition-fast);
 }
 
-.site-footer .footer-links a:hover {
+.footer-col a:hover {
   color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.04);
 }
 
-/* Responsive */
+.footer-brand .logo {
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+.footer-brand p {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  line-height: 1.6;
+  max-width: 280px;
+}
+
+.footer-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  margin-top: 14px;
+  border-radius: 100px;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.22);
+  color: var(--neon-green-bright);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+}
+
+.footer-status .pulse-dot {
+  width: 6px;
+  height: 6px;
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* ============================================
+   Back-to-top button (injected by JS)
+   ============================================ */
+
+.back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity var(--transition-base), transform var(--transition-base), visibility var(--transition-base), border-color var(--transition-fast), background var(--transition-fast);
+  z-index: 80;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  border-color: var(--accent);
+  background: rgba(var(--accent-rgb), 0.1);
+  color: var(--accent-bright);
+}
+
+.back-to-top svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
 
 @media (max-width: 768px) {
-  .section {
-    padding: 64px 0;
+  :root {
+    --section-pad-y: 64px;
+    --section-pad-y-tight: 44px;
   }
 
   .section-title {
@@ -387,12 +671,71 @@ body::after {
     display: flex;
   }
 
-  .data-table {
-    font-size: 0.78rem;
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
   }
 
-  .data-table thead th,
-  .data-table tbody td {
-    padding: 10px 12px;
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .section-header.is-numbered .section-index::after {
+    display: none;
+  }
+}
+
+/* ============================================
+   Print — paper-friendly
+   ============================================ */
+
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+    overflow: visible;
+  }
+
+  body::before,
+  body::after,
+  .disclaimer-bar,
+  .site-header,
+  .back-to-top,
+  .gradient-divider::after {
+    display: none !important;
+  }
+
+  .section {
+    padding: 24px 0 !important;
+    break-inside: avoid;
+  }
+
+  .section-title {
+    color: #000;
+  }
+
+  .site-footer {
+    border-top: 1px solid #000;
+    background: none;
+    color: #000;
+  }
+
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+
+  .data-table,
+  .feature-card,
+  .info-box,
+  .metric-card {
+    border: 1px solid #ccc !important;
+    background: #fff !important;
+    box-shadow: none !important;
   }
 }

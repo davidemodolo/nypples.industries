@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pricing — Nypples Industries</title>
+  <meta name="description" content="Batch processing and real-time chat pricing for GDPR-compliant LLM inference on Huawei Ascend hardware. EUR-denominated, SLA-backed.">
   <link rel="icon" type="image/png" href="images/logo.png">
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/layout.css">
@@ -17,79 +18,81 @@
   <div id="app">
     <main>
 
-      <section class="section">
+      <section class="section section--accent-cyan">
         <div class="container">
-          <div class="section-header reveal">
-            <div class="accent-line"></div>
-            <h2 class="section-title">Batch Processing</h2>
+          <div class="section-header is-numbered reveal">
+            <span class="section-index">01 / Batch</span>
+            <h2 class="section-title">Batch processing.</h2>
             <p class="section-subtitle">Asynchronous, always available. Ideal for document pipelines, data processing, and enterprise workloads.</p>
           </div>
 
-          <table class="data-table reveal">
-            <thead>
-              <tr>
-                <th>Service</th>
-                <th>Description</th>
-                <th>Unit</th>
-                <th>Price per Unit</th>
-                <th>SLA</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Document Summarization</strong></td>
-                <td>Extractive &amp; abstractive summarization via flagship models</td>
-                <td>Per page (~500 words)</td>
-                <td class="mono price">&euro;0.012</td>
-                <td class="mono">4h turnaround</td>
-              </tr>
-              <tr>
-                <td><strong>Text Classification</strong></td>
-                <td>Multi-label, sentiment, topic categorization</td>
-                <td>Per item</td>
-                <td class="mono price">&euro;0.003</td>
-                <td class="mono">1h turnaround</td>
-              </tr>
-              <tr>
-                <td><strong>Entity Extraction</strong></td>
-                <td>NER, PII detection, structured data extraction</td>
-                <td>Per 1K characters</td>
-                <td class="mono price">&euro;0.005</td>
-                <td class="mono">1h turnaround</td>
-              </tr>
-              <tr>
-                <td><strong>Embedding Generation</strong></td>
-                <td>BGE-M3 / Stella / GTE, 1024-3584d vectors</td>
-                <td>Per 1K tokens</td>
-                <td class="mono price">&euro;0.00008</td>
-                <td class="mono">30min turnaround</td>
-              </tr>
-              <tr>
-                <td><strong>Batch RAG Pipeline</strong></td>
-                <td>Ingest &rarr; chunk &rarr; embed &rarr; index &rarr; retrieve &rarr; generate</td>
-                <td>Custom quote</td>
-                <td class="mono price">Contact</td>
-                <td class="mono">Per SLA</td>
-              </tr>
-              <tr>
-                <td><strong>Batch Chat Completion</strong></td>
-                <td>Submit up to 50K prompts, results within SLA window</td>
-                <td>Per 1M tokens</td>
-                <td class="mono price">See model pricing</td>
-                <td class="mono">8h turnaround</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="table-wrap reveal">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Service</th>
+                  <th>Description</th>
+                  <th>Unit</th>
+                  <th>Price per Unit</th>
+                  <th>SLA</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Document Summarization</strong></td>
+                  <td>Extractive &amp; abstractive summarization via flagship models</td>
+                  <td>Per page (~500 words)</td>
+                  <td class="mono price">&euro;0.012</td>
+                  <td class="mono">4h turnaround</td>
+                </tr>
+                <tr>
+                  <td><strong>Text Classification</strong></td>
+                  <td>Multi-label, sentiment, topic categorization</td>
+                  <td>Per item</td>
+                  <td class="mono price">&euro;0.003</td>
+                  <td class="mono">1h turnaround</td>
+                </tr>
+                <tr>
+                  <td><strong>Entity Extraction</strong></td>
+                  <td>NER, PII detection, structured data extraction</td>
+                  <td>Per 1K characters</td>
+                  <td class="mono price">&euro;0.005</td>
+                  <td class="mono">1h turnaround</td>
+                </tr>
+                <tr>
+                  <td><strong>Embedding Generation</strong></td>
+                  <td>BGE-M3 / Stella / GTE, 1024-3584d vectors</td>
+                  <td>Per 1K tokens</td>
+                  <td class="mono price">&euro;0.00008</td>
+                  <td class="mono">30min turnaround</td>
+                </tr>
+                <tr>
+                  <td><strong>Batch RAG Pipeline</strong></td>
+                  <td>Ingest &rarr; chunk &rarr; embed &rarr; index &rarr; retrieve &rarr; generate</td>
+                  <td>Custom quote</td>
+                  <td class="mono price">Contact</td>
+                  <td class="mono">Per SLA</td>
+                </tr>
+                <tr>
+                  <td><strong>Batch Chat Completion</strong></td>
+                  <td>Submit up to 50K prompts, results within SLA window</td>
+                  <td>Per 1M tokens</td>
+                  <td class="mono price">See model pricing</td>
+                  <td class="mono">8h turnaround</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 
       <div class="gradient-divider"></div>
 
-      <section class="section">
+      <section class="section section--accent-purple">
         <div class="container">
-          <div class="section-header reveal">
-            <div class="accent-line"></div>
-            <h2 class="section-title">Real-Time Chat</h2>
+          <div class="section-header is-numbered reveal">
+            <span class="section-index">02 / Real-time</span>
+            <h2 class="section-title">Real-time chat.</h2>
             <p class="section-subtitle">Premium capacity for interactive applications. Limited availability during startup phase.</p>
           </div>
 
@@ -106,7 +109,7 @@
                 <li>Community support</li>
                 <li>No SLA</li>
               </ul>
-              <a href="#" class="btn btn-secondary" style="width: 100%; justify-content: center;">Get Started</a>
+              <a href="#" class="btn btn-secondary btn--block">Get Started</a>
             </div>
 
             <div class="tier-card featured reveal reveal-delay-1">
@@ -121,7 +124,10 @@
                 <li>Email support (4h)</li>
                 <li>GDPR DPA included</li>
               </ul>
-              <a href="#" class="btn btn-primary" style="width: 100%; justify-content: center;">Subscribe</a>
+              <a href="#" class="btn btn-primary btn--block">
+                <span>Subscribe</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
             </div>
 
             <div class="tier-card reveal reveal-delay-2">
@@ -136,7 +142,7 @@
                 <li>24/7 priority support</li>
                 <li>Custom model fine-tuning</li>
               </ul>
-              <a href="#" class="btn btn-secondary" style="width: 100%; justify-content: center;">Contact Sales</a>
+              <a href="#" class="btn btn-secondary btn--block">Contact Sales</a>
             </div>
           </div>
 
@@ -148,23 +154,23 @@
 
       <div class="gradient-divider"></div>
 
-      <section class="section">
+      <section class="section section--accent-gold">
         <div class="container">
-          <div class="section-header reveal">
-            <div class="accent-line"></div>
-            <h2 class="section-title">Service Level Agreement</h2>
+          <div class="section-header is-numbered reveal">
+            <span class="section-index">03 / SLA</span>
+            <h2 class="section-title">Service level agreement.</h2>
             <p class="section-subtitle">Uptime commitments, support response times, and incident handling.</p>
           </div>
 
           <div class="feature-grid stagger">
             <div class="feature-card reveal">
               <h3>Batch Processing SLA</h3>
-              <table class="data-table" style="margin-top: 16px;">
+              <table class="data-table">
                 <thead>
                   <tr><th>Metric</th><th>Commitment</th></tr>
                 </thead>
                 <tbody>
-                  <tr><td>Job acceptance</td><td class="mono">99.9% — always accepting</td></tr>
+                  <tr><td>Job acceptance</td><td class="mono">99.9% &mdash; always accepting</td></tr>
                   <tr><td>Summarization turnaround</td><td class="mono">&le; 4 hours</td></tr>
                   <tr><td>Classification turnaround</td><td class="mono">&le; 1 hour</td></tr>
                   <tr><td>Embedding turnaround</td><td class="mono">&le; 30 minutes</td></tr>
@@ -175,7 +181,7 @@
             </div>
             <div class="feature-card reveal reveal-delay-1">
               <h3>Real-Time SLA</h3>
-              <table class="data-table" style="margin-top: 16px;">
+              <table class="data-table">
                 <thead>
                   <tr><th>Metric</th><th>Business</th><th>Enterprise</th></tr>
                 </thead>
@@ -191,7 +197,7 @@
             </div>
           </div>
 
-          <div class="info-box reveal" style="margin-top: 24px;">
+          <div class="info-box info-box-gold reveal" style="margin-top: 24px;">
             <strong>Exclusions:</strong> SLA does not apply during scheduled maintenance windows (notified 72 hours in advance, conducted 02:00-05:00 CET). Force majeure events, customer-side network issues, and upstream model availability beyond our control are excluded. Full SLA document available upon contract signing.
           </div>
 
@@ -218,24 +224,24 @@
 
       <div class="gradient-divider"></div>
 
-      <section class="section">
+      <section class="section section--accent-cyan">
         <div class="container">
-          <div class="section-header reveal">
-            <div class="accent-line"></div>
-            <h2 class="section-title">Cost Calculator</h2>
+          <div class="section-header is-numbered reveal">
+            <span class="section-index">04 / Calculator</span>
+            <h2 class="section-title">Cost calculator.</h2>
             <p class="section-subtitle">Estimate your monthly spend based on model choice and token volume.</p>
           </div>
 
           <div class="calculator reveal" id="pricing-calc">
             <label for="calc-model">Model</label>
             <select id="calc-model" class="calc-model">
-              <option value="1.60">DeepSeek V4 Pro — &euro;1.60/M input</option>
-              <option value="0.25">DeepSeek V4 Flash — &euro;0.25/M input</option>
-              <option value="1.30">GLM-5.2 — &euro;1.30/M input</option>
-              <option value="0.90">Kimi K2.7 Code — &euro;0.90/M input</option>
-              <option value="0.30">Qwen3.7-Plus — &euro;0.30/M input</option>
-              <option value="0.55">Nemotron 3 Ultra — &euro;0.55/M input</option>
-              <option value="0.15">Qwen3.5 9B — &euro;0.15/M input</option>
+              <option value="1.60">DeepSeek V4 Pro &mdash; &euro;1.60/M input</option>
+              <option value="0.25">DeepSeek V4 Flash &mdash; &euro;0.25/M input</option>
+              <option value="1.30">GLM-5.2 &mdash; &euro;1.30/M input</option>
+              <option value="0.90">Kimi K2.7 Code &mdash; &euro;0.90/M input</option>
+              <option value="0.30">Qwen3.7-Plus &mdash; &euro;0.30/M input</option>
+              <option value="0.55">Nemotron 3 Ultra &mdash; &euro;0.55/M input</option>
+              <option value="0.15">Qwen3.5 9B &mdash; &euro;0.15/M input</option>
             </select>
 
             <label for="calc-tokens">Tokens per Month (millions)</label>
@@ -264,71 +270,80 @@
 
       <div class="gradient-divider"></div>
 
-      <section class="section">
+      <section class="section section--accent-green">
         <div class="container">
-          <div class="section-header reveal">
-            <div class="accent-line"></div>
-            <h2 class="section-title">Market Comparison</h2>
+          <div class="section-header is-numbered reveal">
+            <span class="section-index">05 / Comparison</span>
+            <h2 class="section-title">Market comparison.</h2>
             <p class="section-subtitle">How Nypples compares to alternative providers for self-hosted EU workloads.</p>
           </div>
 
-          <table class="data-table reveal">
-            <thead>
-              <tr>
-                <th>Provider</th>
-                <th>Data Residency</th>
-                <th>DeepSeek V4 Pro Input/M</th>
-                <th>Self-Hosted</th>
-                <th>GDPR DPA</th>
-                <th>No US Sub-processors</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="compare-highlight">
-                <td><strong>Nypples Industries</strong></td>
-                <td><span class="badge badge-green">EU (Trento)</span></td>
-                <td class="mono price">&euro;1.60</td>
-                <td><span class="badge badge-green">Yes</span></td>
-                <td><span class="badge badge-green">Yes</span></td>
-                <td><span class="badge badge-green">Yes</span></td>
-              </tr>
-              <tr>
-                <td>DeepSeek API</td>
-                <td><span class="badge badge-gold">China</span></td>
-                <td class="mono">~$0.27 (~&euro;0.25)</td>
-                <td><span class="badge badge-purple">No</span></td>
-                <td><span class="badge badge-purple">No</span></td>
-                <td><span class="badge badge-green">Yes</span></td>
-              </tr>
-              <tr>
-                <td>Together AI</td>
-                <td><span class="badge badge-purple">US</span></td>
-                <td class="mono">$1.74 (~&euro;1.60)</td>
-                <td><span class="badge badge-purple">No</span></td>
-                <td><span class="badge badge-purple">Varies</span></td>
-                <td><span class="badge badge-purple">No</span></td>
-              </tr>
-              <tr>
-                <td>Fireworks AI</td>
-                <td><span class="badge badge-purple">US</span></td>
-                <td class="mono">$1.50 (~&euro;1.38)</td>
-                <td><span class="badge badge-purple">No</span></td>
-                <td><span class="badge badge-purple">Varies</span></td>
-                <td><span class="badge badge-purple">No</span></td>
-              </tr>
-              <tr>
-                <td>HuggingFace Inference</td>
-                <td><span class="badge badge-purple">US/EU</span></td>
-                <td class="mono">$1.50 (~&euro;1.38)</td>
-                <td><span class="badge badge-green">Possible</span></td>
-                <td><span class="badge badge-purple">Enterprise Only</span></td>
-                <td><span class="badge badge-purple">No</span></td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="table-wrap reveal">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Provider</th>
+                  <th>Data Residency</th>
+                  <th>DeepSeek V4 Pro Input/M</th>
+                  <th>Self-Hosted</th>
+                  <th>GDPR DPA</th>
+                  <th>No US Sub-processors</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="compare-highlight">
+                  <td><strong>Nypples Industries</strong></td>
+                  <td><span class="badge badge-green">EU (Trento)</span></td>
+                  <td class="mono price">&euro;1.60</td>
+                  <td><span class="badge badge-green">Yes</span></td>
+                  <td><span class="badge badge-green">Yes</span></td>
+                  <td><span class="badge badge-green">Yes</span></td>
+                </tr>
+                <tr>
+                  <td>DeepSeek API</td>
+                  <td><span class="badge badge-gold">China</span></td>
+                  <td class="mono">~$0.27 (~&euro;0.25)</td>
+                  <td><span class="badge badge-purple">No</span></td>
+                  <td><span class="badge badge-purple">No</span></td>
+                  <td><span class="badge badge-green">Yes</span></td>
+                </tr>
+                <tr>
+                  <td>Together AI</td>
+                  <td><span class="badge badge-purple">US</span></td>
+                  <td class="mono">$1.74 (~&euro;1.60)</td>
+                  <td><span class="badge badge-purple">No</span></td>
+                  <td><span class="badge badge-purple">Varies</span></td>
+                  <td><span class="badge badge-purple">No</span></td>
+                </tr>
+                <tr>
+                  <td>Fireworks AI</td>
+                  <td><span class="badge badge-purple">US</span></td>
+                  <td class="mono">$1.50 (~&euro;1.38)</td>
+                  <td><span class="badge badge-purple">No</span></td>
+                  <td><span class="badge badge-purple">Varies</span></td>
+                  <td><span class="badge badge-purple">No</span></td>
+                </tr>
+                <tr>
+                  <td>HuggingFace Inference</td>
+                  <td><span class="badge badge-purple">US/EU</span></td>
+                  <td class="mono">$1.50 (~&euro;1.38)</td>
+                  <td><span class="badge badge-green">Possible</span></td>
+                  <td><span class="badge badge-purple">Enterprise Only</span></td>
+                  <td><span class="badge badge-purple">No</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
           <div class="info-box reveal" style="margin-top: 24px;">
-            <strong>Our pricing philosophy:</strong> We price competitively with the market — not a race to the bottom. What you pay for is <strong>data sovereignty</strong>. When you choose Nypples, your prompts and completions never leave the EU. No GPDR Schrems II concerns. No US CLOUD Act exposure. For regulated industries (healthcare, legal, insurance, government), this difference is existential.
+            <strong>Our pricing philosophy:</strong> We price competitively with the market &mdash; not a race to the bottom. What you pay for is <strong>data sovereignty</strong>. When you choose Nypples, your prompts and completions never leave the EU. No GDPR Schrems II concerns. No US CLOUD Act exposure. For regulated industries (healthcare, legal, insurance, government), this difference is existential.
+          </div>
+
+          <div class="cta-center reveal">
+            <a href="gdpr.html" class="btn btn-primary">
+              <span>Read the GDPR story</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
           </div>
         </div>
       </section>

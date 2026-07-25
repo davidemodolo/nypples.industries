@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Infrastructure — Nypples Industries</title>
+  <meta name="description" content="Huawei Ascend 910C cluster, CANN/MindSpore software stack, budget allocation, and ROI projections for Europe's first Ascend GPU partner.">
   <link rel="icon" type="image/png" href="images/logo.png">
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/layout.css">
@@ -17,12 +18,12 @@
   <div id="app">
     <main>
 
-      <section class="section">
+      <section class="section section--accent-cyan">
         <div class="container">
-          <div class="section-header reveal">
-            <div class="accent-line"></div>
-            <h2 class="section-title">Compute Infrastructure</h2>
-            <p class="section-subtitle">Europe's first Huawei Ascend GPU cluster purpose-built for AI inference at scale.</p>
+          <div class="section-header is-numbered reveal">
+            <span class="section-index">01 / Compute</span>
+            <h2 class="section-title">Europe's first Ascend GPU cluster.</h2>
+            <p class="section-subtitle">Purpose-built for AI inference at scale. No US cloud, no NVIDIA tax, no data export.</p>
           </div>
 
           <div class="metrics-grid stagger">
@@ -54,69 +55,72 @@
         </div>
       </section>
 
-      <section class="section" style="padding-top: 0;">
+      <section class="section section--flush-top section--accent-cyan">
         <div class="container">
-          <div class="section-header reveal">
-            <div class="accent-line"></div>
-            <h2 class="section-title">GPU Specifications</h2>
+          <div class="section-header is-numbered reveal">
+            <span class="section-index">02 / Specifications</span>
+            <h2 class="section-title">Ascend 910C vs NVIDIA H100.</h2>
+            <p class="section-subtitle">Side-by-side. We don't hide from the comparison.</p>
           </div>
-          <table class="data-table reveal">
-            <thead>
-              <tr>
-                <th>Specification</th>
-                <th>Ascend 910C</th>
-                <th>NVIDIA H100 (for reference)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>FP16 Performance</td>
-                <td class="mono">~320 TFLOPS</td>
-                <td class="mono">~350 TFLOPS (less FP8)</td>
-              </tr>
-              <tr>
-                <td>INT8 Performance</td>
-                <td class="mono">~640 TOPS</td>
-                <td class="mono">~700 TOPS</td>
-              </tr>
-              <tr>
-                <td>Memory</td>
-                <td class="mono">64 GB HBM2E</td>
-                <td class="mono">80 GB HBM3</td>
-              </tr>
-              <tr>
-                <td>Memory Bandwidth</td>
-                <td class="mono">1.6 TB/s</td>
-                <td class="mono">3.35 TB/s</td>
-              </tr>
-              <tr>
-                <td>Interconnect</td>
-                <td class="mono">HCCS + 800G RoCE</td>
-                <td class="mono">NVLink + InfiniBand</td>
-              </tr>
-              <tr>
-                <td>Software Stack</td>
-                <td class="mono">CANN 8.0 / MindSpore</td>
-                <td class="mono">CUDA 12 / cuDNN</td>
-              </tr>
-              <tr>
-                <td>Partner Price per Node</td>
-                <td class="mono price">~€29,000</td>
-                <td class="mono">~€37,000+</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="table-wrap reveal">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Specification</th>
+                  <th>Ascend 910C</th>
+                  <th>NVIDIA H100 (for reference)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>FP16 Performance</td>
+                  <td class="mono">~320 TFLOPS</td>
+                  <td class="mono">~350 TFLOPS (less FP8)</td>
+                </tr>
+                <tr>
+                  <td>INT8 Performance</td>
+                  <td class="mono">~640 TOPS</td>
+                  <td class="mono">~700 TOPS</td>
+                </tr>
+                <tr>
+                  <td>Memory</td>
+                  <td class="mono">64 GB HBM2E</td>
+                  <td class="mono">80 GB HBM3</td>
+                </tr>
+                <tr>
+                  <td>Memory Bandwidth</td>
+                  <td class="mono">1.6 TB/s</td>
+                  <td class="mono">3.35 TB/s</td>
+                </tr>
+                <tr>
+                  <td>Interconnect</td>
+                  <td class="mono">HCCS + 800G RoCE</td>
+                  <td class="mono">NVLink + InfiniBand</td>
+                </tr>
+                <tr>
+                  <td>Software Stack</td>
+                  <td class="mono">CANN 8.0 / MindSpore</td>
+                  <td class="mono">CUDA 12 / cuDNN</td>
+                </tr>
+                <tr>
+                  <td>Partner Price per Node</td>
+                  <td class="mono price">~&euro;29,000</td>
+                  <td class="mono">~&euro;37,000+</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 
       <div class="gradient-divider"></div>
 
-      <section class="section">
+      <section class="section section--accent-purple">
         <div class="container">
-          <div class="section-header reveal">
-            <div class="accent-line"></div>
-            <h2 class="section-title">Software Stack</h2>
-            <p class="section-subtitle">Bridging the Ascend ecosystem with open-source AI tooling. Each layer is independently swappable and links to its upstream project.</p>
+          <div class="section-header is-numbered reveal">
+            <span class="section-index">03 / Software Stack</span>
+            <h2 class="section-title">Ascend ecosystem bridged to open-source AI.</h2>
+            <p class="section-subtitle">Each layer is independently swappable and links to its upstream project.</p>
           </div>
 
           <div class="arch-stack reveal">
@@ -202,15 +206,15 @@
 
           <div class="arch-aux-grid reveal">
             <div class="arch-aux">
-              <span class="arch-aux-dot" style="background: var(--neon-gold);"></span>
+              <span class="arch-aux-dot gold"></span>
               <span class="arch-aux-label">200 TB NVMe &middot; Ceph</span>
             </div>
             <div class="arch-aux">
-              <span class="arch-aux-dot" style="background: var(--neon-purple);"></span>
+              <span class="arch-aux-dot purple"></span>
               <span class="arch-aux-label">2 PB Object &middot; MinIO</span>
             </div>
             <div class="arch-aux">
-              <span class="arch-aux-dot" style="background: var(--neon-cyan);"></span>
+              <span class="arch-aux-dot cyan"></span>
               <span class="arch-aux-label">Prometheus &middot; Grafana</span>
             </div>
           </div>
@@ -223,11 +227,12 @@
 
       <div class="gradient-divider"></div>
 
-      <section class="section">
+      <section class="section section--accent-gold">
         <div class="container">
-          <div class="section-header reveal">
-            <div class="accent-line"></div>
-            <h2 class="section-title">Budget Allocation &mdash; &euro;1M Angel Round</h2>
+          <div class="section-header is-numbered reveal">
+            <span class="section-index">04 / Budget</span>
+            <h2 class="section-title">&euro;1M angel round allocation.</h2>
+            <p class="section-subtitle">Where every euro goes. Transparent by design.</p>
           </div>
 
           <div class="budget-chart reveal">
@@ -273,93 +278,102 @@
             </div>
           </div>
 
-          <table class="data-table reveal" style="margin-top: 32px;">
-            <thead>
-              <tr>
-                <th>Category</th>
-                <th>Amount</th>
-                <th>% of Budget</th>
-                <th>Details</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>GPU Hardware</td>
-                <td class="mono price">€580,000</td>
-                <td class="mono">58%</td>
-                <td>20x Ascend 910C modules + server chassis via Huawei EU partner program</td>
-              </tr>
-              <tr>
-                <td>Networking</td>
-                <td class="mono price">€85,000</td>
-                <td class="mono">8.5%</td>
-                <td>800G RoCE switches, optical transceivers, DAC cables</td>
-              </tr>
-              <tr>
-                <td>Storage &amp; Racks</td>
-                <td class="mono price">€95,000</td>
-                <td class="mono">9.5%</td>
-                <td>200TB NVMe, 2PB MinIO object storage, rack enclosures</td>
-              </tr>
-              <tr>
-                <td>Colocation</td>
-                <td class="mono price">€120,000</td>
-                <td class="mono">12%</td>
-                <td>Trento datacenter, 3 racks, 120kW power + cooling, Year 1</td>
-              </tr>
-              <tr>
-                <td>Staff</td>
-                <td class="mono price">€90,000</td>
-                <td class="mono">9%</td>
-                <td>3 senior engineers (infra, ML ops, backend) for 6 months</td>
-              </tr>
-              <tr>
-                <td>Buffer</td>
-                <td class="mono price">€30,000</td>
-                <td class="mono">3%</td>
-                <td>Contingency, legal, insurance, operational overhead</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="table-wrap reveal" style="margin-top: 32px;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Amount</th>
+                  <th>% of Budget</th>
+                  <th>Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>GPU Hardware</td>
+                  <td class="mono price">&euro;580,000</td>
+                  <td class="mono">58%</td>
+                  <td>20x Ascend 910C modules + server chassis via Huawei EU partner program</td>
+                </tr>
+                <tr>
+                  <td>Networking</td>
+                  <td class="mono price">&euro;85,000</td>
+                  <td class="mono">8.5%</td>
+                  <td>800G RoCE switches, optical transceivers, DAC cables</td>
+                </tr>
+                <tr>
+                  <td>Storage &amp; Racks</td>
+                  <td class="mono price">&euro;95,000</td>
+                  <td class="mono">9.5%</td>
+                  <td>200TB NVMe, 2PB MinIO object storage, rack enclosures</td>
+                </tr>
+                <tr>
+                  <td>Colocation</td>
+                  <td class="mono price">&euro;120,000</td>
+                  <td class="mono">12%</td>
+                  <td>Trento datacenter, 3 racks, 120kW power + cooling, Year 1</td>
+                </tr>
+                <tr>
+                  <td>Staff</td>
+                  <td class="mono price">&euro;90,000</td>
+                  <td class="mono">9%</td>
+                  <td>3 senior engineers (infra, ML ops, backend) for 6 months</td>
+                </tr>
+                <tr>
+                  <td>Buffer</td>
+                  <td class="mono price">&euro;30,000</td>
+                  <td class="mono">3%</td>
+                  <td>Contingency, legal, insurance, operational overhead</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 
       <div class="gradient-divider"></div>
 
-      <section class="section">
+      <section class="section section--accent-green">
         <div class="container">
-          <div class="section-header reveal">
-            <div class="accent-line"></div>
-            <h2 class="section-title">Return on Investment</h2>
+          <div class="section-header is-numbered reveal">
+            <span class="section-index">05 / ROI</span>
+            <h2 class="section-title">Return on investment.</h2>
             <p class="section-subtitle">Projected financials based on realistic utilization scenarios.</p>
           </div>
 
-          <div class="feature-grid stagger">
-            <div class="feature-card reveal">
-              <div class="feature-card-icon purple">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M14.5 9.5c-.5-1-1.5-1.5-2.5-1.5-1.5 0-2.5 1-2.5 2s1 1.5 2.5 2 2.5 1 2.5 2-1 2-2.5 2c-1 0-2-.5-2.5-1.5"/><path d="M12 6v1.5"/><path d="M12 16.5V18"/></svg>
+          <div class="bento stagger">
+            <div class="bento-card reveal bento--half">
+              <span class="bento-eyebrow">Burn rate</span>
+              <h3>&euro;29,000 / month</h3>
+              <p>Colocation &euro;10K, staff &euro;15K, bandwidth &amp; power &euro;4K. Operational cost after Phase 1 deployment. Fully loaded.</p>
+              <div class="bento-footer">
+                <span class="badge badge-cyan">post-deployment</span>
               </div>
-              <h3>Monthly Burn Rate</h3>
-              <p>Colocation &euro;10K, staff &euro;15K, bandwidth &amp; power &euro;4K = <span class="highlight">&euro;29,000/month</span> operational cost after Phase 1 deployment.</p>
             </div>
-            <div class="feature-card reveal reveal-delay-1">
-              <div class="feature-card-icon cyan">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 4 8-8"/><path d="M21 8v5h-5"/></svg>
+            <div class="bento-card reveal reveal-delay-1 bento--half">
+              <span class="bento-eyebrow">Break-even</span>
+              <h3>Month 8&ndash;10</h3>
+              <p>At <span class="highlight">25% GPU utilization</span> across batch + real-time services, projected revenue reaches approximately &euro;45,000/month.</p>
+              <div class="bento-footer">
+                <span class="badge badge-green">25% utilization</span>
               </div>
-              <h3>Break-Even Point</h3>
-              <p>At <span class="highlight">25% GPU utilization</span> across batch + real-time services, projected revenue reaches approximately &euro;45,000/month &mdash; achieving break-even within month 8-10.</p>
             </div>
-            <div class="feature-card reveal reveal-delay-2">
-              <div class="feature-card-icon gold">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 14 4-4 3 3 5-6"/></svg>
+            <div class="bento-card reveal reveal-delay-2 bento--full">
+              <span class="bento-eyebrow">Steady state</span>
+              <h3>&euro;95,000+ / month at 60% utilization</h3>
+              <p>At target utilization, monthly revenue projected at &euro;95,000+. Runway from angel round exceeds 18 months at current burn rate. Series A target: Q3 2027, &euro;3&ndash;5M for multi-region EU expansion.</p>
+              <div class="bento-footer">
+                <span class="badge badge-gold">60% utilization</span>
+                <span class="badge badge-purple">Series A: Q3 2027</span>
               </div>
-              <h3>Target Steady State</h3>
-              <p>At <span class="highlight">60% utilization</span>, monthly revenue projected at &euro;95,000+. Runway from angel round exceeds 18 months at current burn rate. Series A target: Q3 2027.</p>
             </div>
           </div>
 
-          <div style="text-align: center; margin-top: 40px;" class="reveal">
-            <a href="pricing.html" class="btn btn-primary">See Pricing Plans</a>
+          <div class="cta-center reveal">
+            <a href="pricing.html" class="btn btn-primary">
+              <span>See pricing plans</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
           </div>
         </div>
       </section>

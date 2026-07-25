@@ -7,6 +7,27 @@ const NAV_PAGES = [
   { href: 'gdpr.html', label: 'GDPR' },
 ];
 
+const FOOTER_LINKS = {
+  product: [
+    { href: 'models.html', label: 'Model Catalog' },
+    { href: 'pricing.html', label: 'Pricing' },
+    { href: 'infrastructure.html', label: 'Infrastructure' },
+    { href: 'roadmap.html', label: 'Roadmap' },
+  ],
+  company: [
+    { href: 'gdpr.html', label: 'GDPR &amp; Compliance' },
+    { href: 'infrastructure.html', label: 'About Nypples' },
+    { href: 'roadmap.html', label: 'Vision' },
+    { href: '#', label: 'Careers' },
+  ],
+  resources: [
+    { href: '#', label: 'API Docs' },
+    { href: '#', label: 'Status Page' },
+    { href: '#', label: 'Changelog' },
+    { href: '#', label: 'Contact' },
+  ],
+};
+
 const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
 function renderDisclaimer() {
@@ -74,22 +95,57 @@ function renderFooter() {
   const container = document.createElement('div');
   container.className = 'container';
 
-  const links = document.createElement('ul');
-  links.className = 'footer-links';
-  NAV_PAGES.forEach(page => {
-    const li = document.createElement('li');
-    const a = document.createElement('a');
-    a.href = page.href;
-    a.textContent = page.label;
-    li.appendChild(a);
-    links.appendChild(li);
+  const grid = document.createElement('div');
+  grid.className = 'footer-grid';
+
+  // Brand column
+  const brand = document.createElement('div');
+  brand.className = 'footer-col footer-brand';
+  brand.innerHTML = `
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="Nypples Industries" class="logo-img" width="32" height="32">
+      Nypples Industries
+    </a>
+    <p>Sovereign AI infrastructure for Europe. Self-hosted open-weight LLM inference on Huawei Ascend hardware.</p>
+    <span class="footer-status">
+      <span class="pulse-dot"></span> All systems operational
+    </span>
+  `;
+  grid.appendChild(brand);
+
+  // Link columns
+  const columns = [
+    { title: 'Product', key: 'product' },
+    { title: 'Company', key: 'company' },
+    { title: 'Resources', key: 'resources' },
+  ];
+
+  columns.forEach(col => {
+    const colEl = document.createElement('div');
+    colEl.className = 'footer-col';
+    colEl.innerHTML = `<h4>${col.title}</h4><ul></ul>`;
+    const ul = colEl.querySelector('ul');
+    FOOTER_LINKS[col.key].forEach(link => {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = link.href;
+      a.innerHTML = link.label;
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+    grid.appendChild(colEl);
   });
 
-  const copy = document.createElement('p');
-  copy.innerHTML = '&copy; 2026 Nypples Industries &mdash; This is a fictional project. No real services are offered.<br>Powered by Huawei Ascend &mdash; First European GPU Partner.';
+  container.appendChild(grid);
 
-  container.appendChild(links);
-  container.appendChild(copy);
+  const bottom = document.createElement('div');
+  bottom.className = 'footer-bottom';
+  bottom.innerHTML = `
+    <span>&copy; 2026 Nypples Industries &mdash; Fictional concept. No real services offered.</span>
+    <span>Trento, Italy &middot; Powered by Huawei Ascend &middot; First European GPU Partner</span>
+  `;
+
+  container.appendChild(bottom);
   footer.appendChild(container);
   return footer;
 }

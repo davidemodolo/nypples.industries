@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nypples Industries — Sovereign AI Infrastructure</title>
+  <meta name="description" content="Europe's first Huawei Ascend GPU partner. Self-hosted, GDPR-compliant open-weight LLM inference running on Huawei hardware in Trento, Italy.">
   <link rel="icon" type="image/png" href="images/logo.png">
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/layout.css">
@@ -20,9 +21,9 @@
         <div class="container">
           <div class="hero-split">
             <div class="hero-text">
-              <span class="hero-eyebrow"><span class="pulse-dot"></span> Trento, Italy</span>
+              <span class="hero-eyebrow"><span class="pulse-dot"></span> Trento, Italy &middot; ISO 27001</span>
               <h1>
-                Sovereign AI.<br>
+                Sovereign AI.
                 <span class="gradient-text-anim">European Soil.</span>
               </h1>
               <p>
@@ -31,40 +32,68 @@
                 No data ever leaves the EU.
               </p>
               <div class="btn-group">
-                <a href="infrastructure.html" class="btn btn-primary">Explore Infrastructure</a>
+                <a href="infrastructure.html" class="btn btn-primary">
+                  <span>Explore Infrastructure</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
                 <a href="models.html" class="btn btn-secondary">View Models</a>
               </div>
             </div>
             <div class="hero-visual-wrap reveal">
               <img src="images/hero-visual.png" alt="Nypples Industries Ascend GPU server rack in Trento colocation facility" class="hero-visual" loading="eager">
+              <div class="hero-stat-overlay">
+                <span class="hero-stat-value">6.4 PFLOPS</span>
+                <span class="hero-stat-label">Live Compute</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-marquee reveal" aria-hidden="true">
+            <div class="hero-marquee-track">
+              <span class="hero-marquee-item">DeepSeek V4 Pro</span>
+              <span class="hero-marquee-item">GLM-5.2</span>
+              <span class="hero-marquee-item">Kimi K2.7 Code</span>
+              <span class="hero-marquee-item">Qwen3.7-Plus</span>
+              <span class="hero-marquee-item">Nemotron 3 Ultra</span>
+              <span class="hero-marquee-item">BGE-M3</span>
+              <span class="hero-marquee-item">Stella-400M</span>
+              <span class="hero-marquee-item">DeepSeek V4 Pro</span>
+              <span class="hero-marquee-item">GLM-5.2</span>
+              <span class="hero-marquee-item">Kimi K2.7 Code</span>
+              <span class="hero-marquee-item">Qwen3.7-Plus</span>
+              <span class="hero-marquee-item">Nemotron 3 Ultra</span>
+              <span class="hero-marquee-item">BGE-M3</span>
+              <span class="hero-marquee-item">Stella-400M</span>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section">
+      <section class="section section--accent-cyan">
         <div class="container">
-          <div class="feature-grid stagger">
-            <div class="feature-card reveal">
-              <div class="feature-card-icon cyan">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v3"/><path d="M12 19v3"/><path d="m4.9 4.9 2.1 2.1"/><path d="m17 17 2.1 2.1"/><path d="M2 12h3"/><path d="M19 12h3"/><path d="m4.9 19.1 2.1-2.1"/><path d="m17 7 2.1-2.1"/><rect x="8" y="8" width="8" height="8" rx="1.5"/></svg>
+          <div class="section-header is-numbered reveal">
+            <span class="section-index">01 / Platform</span>
+            <h2 class="section-title">Built different, on different silicon.</h2>
+          </div>
+          <div class="bento stagger">
+            <div class="bento-card reveal bento--full">
+              <span class="bento-eyebrow">Self-hosted Ascend</span>
+              <h3>20 Ascend 910C nodes. 6.4 PFLOPS.</h3>
+              <p>No reliance on US-based cloud providers. Full control over hardware, networking, and data &mdash; from the silicon up. The cluster is organized into four 5-node groups connected via 800 Gbps RoCE v2 networking.</p>
+              <div class="bento-footer">
+                <span class="badge badge-cyan">6.4 PFLOPS FP16</span>
+                <span class="badge badge-purple">800G RoCE v2</span>
               </div>
-              <h3>Self-Hosted on Huawei Ascend</h3>
-              <p>20 Ascend 910C nodes delivering 6.4 PFLOPS of AI compute. No reliance on US-based cloud providers. Full control over hardware, networking, and data.</p>
             </div>
-            <div class="feature-card reveal reveal-delay-1">
-              <div class="feature-card-icon purple">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-              </div>
-              <h3>GDPR-Native Architecture</h3>
-              <p>All inference runs within our Trento datacenter. Data never transits outside the European Union. Full DPA available. Designed for EU AI Act compliance from day one.</p>
+            <div class="bento-card reveal reveal-delay-1 bento--half">
+              <span class="bento-eyebrow">GDPR-native</span>
+              <h3>EU-only data residency</h3>
+              <p>All inference runs within our Trento datacenter. Data never transits outside the European Union. Designed for EU AI Act compliance from day one.</p>
             </div>
-            <div class="feature-card reveal reveal-delay-2">
-              <div class="feature-card-icon gold">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="m9 7 2 2-2 2"/><path d="M13 11h3"/></svg>
-              </div>
-              <h3>Open Weights, MIT License</h3>
-              <p>We deploy only open-weight models under permissive licenses. DeepSeek V4 Pro, GLM-5.2, Kimi K2.7. You own your prompts and completions. No vendor lock-in.</p>
+            <div class="bento-card reveal reveal-delay-2 bento--half">
+              <span class="bento-eyebrow">Open weights</span>
+              <h3>MIT-licensed models</h3>
+              <p>DeepSeek V4 Pro, GLM-5.2, Kimi K2.7. You own your prompts and completions. No vendor lock-in, no opaque model governance.</p>
             </div>
           </div>
         </div>
@@ -72,12 +101,12 @@
 
       <div class="gradient-divider"></div>
 
-      <section class="section">
+      <section class="section section--accent-purple">
         <div class="container">
-          <div class="section-header reveal">
-            <div class="accent-line"></div>
-            <h2 class="section-title">Featured Models</h2>
-            <p class="section-subtitle">Production-ready open-weight models running on dedicated Ascend infrastructure.</p>
+          <div class="section-header is-numbered reveal">
+            <span class="section-index">02 / Models</span>
+            <h2 class="section-title">Production-ready open weights.</h2>
+            <p class="section-subtitle">Flagship models running on dedicated Ascend infrastructure. Day-one support for new releases.</p>
           </div>
           <div class="feature-grid stagger">
             <div class="model-spotlight reveal">
@@ -153,40 +182,62 @@
               </div>
             </div>
           </div>
+          <div class="cta-center reveal">
+            <a href="models.html" class="btn btn-secondary">
+              <span>Full model catalog</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
         </div>
       </section>
 
       <div class="gradient-divider"></div>
 
-      <section class="section">
+      <section class="section section--accent-gold">
         <div class="container">
-          <div class="section-header reveal">
-            <div class="accent-line"></div>
-            <h2 class="section-title">Why Europe Needs Sovereign AI</h2>
+          <div class="section-header is-numbered reveal">
+            <span class="section-index">03 / Sovereignty</span>
+            <h2 class="section-title">Why Europe needs its own AI.</h2>
           </div>
-          <div class="metrics-grid stagger">
-            <div class="metric-card reveal">
-              <div class="metric-value">100%</div>
-              <div class="metric-label">EU Data Residency</div>
+
+          <div class="stat-hero reveal">
+            <div class="stat-hero-main">
+              <div class="stat-hero-value">100%</div>
+              <div class="stat-hero-label">EU Data Residency</div>
+              <p class="stat-hero-desc">
+                Every prompt, completion, and embedding is processed and stored on European soil.
+                When you use US-based or China-based AI APIs, your data crosses multiple jurisdictions &mdash; GDPR Article 28 requires documented processing agreements for each.
+              </p>
             </div>
-            <div class="metric-card reveal reveal-delay-1">
-              <div class="metric-value">0</div>
-              <div class="metric-label">US Cloud Dependencies</div>
-            </div>
-            <div class="metric-card reveal reveal-delay-2">
-              <div class="metric-value">6.4</div>
-              <div class="metric-label">PFLOPS Dedicated Compute</div>
-            </div>
-            <div class="metric-card reveal reveal-delay-3">
-              <div class="metric-value">12ms</div>
-              <div class="metric-label">Average Latency EU-Wide</div>
+            <div class="stat-hero-side">
+              <div class="stat-row">
+                <span class="stat-row-value">0</span>
+                <span class="stat-row-label">US cloud dependencies in our stack</span>
+              </div>
+              <div class="stat-row">
+                <span class="stat-row-value">6.4</span>
+                <span class="stat-row-label">PFLOPS of dedicated European compute</span>
+              </div>
+              <div class="stat-row">
+                <span class="stat-row-value">12ms</span>
+                <span class="stat-row-label">Average inference latency, EU-wide</span>
+              </div>
+              <div class="stat-row">
+                <span class="stat-row-value">ISO 27001</span>
+                <span class="stat-row-label">Trento colocation facility certification</span>
+              </div>
             </div>
           </div>
+
           <div class="info-box reveal">
-            <strong>Why this matters:</strong> When you use US-based or China-based AI APIs, your data crosses multiple jurisdictions. GDPR Article 28 requires documented data processing agreements. With Nypples, all computation stays on European soil — in a Trento datacenter with ISO 27001 certification. No data export. No unclear sub-processors. Full chain of custody.
+            <strong>Why this matters:</strong> When you use US-based or China-based AI APIs, your data crosses multiple jurisdictions. GDPR Article 28 requires documented data processing agreements. With Nypples, all computation stays on European soil &mdash; in a Trento datacenter with ISO 27001 certification. No data export. No unclear sub-processors. Full chain of custody.
           </div>
-          <div style="text-align: center; margin-top: 32px;" class="reveal">
-            <a href="gdpr.html" class="btn btn-secondary">Learn About GDPR Compliance</a>
+
+          <div class="cta-center reveal">
+            <a href="gdpr.html" class="btn btn-secondary">
+              <span>Learn about GDPR compliance</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
           </div>
         </div>
       </section>

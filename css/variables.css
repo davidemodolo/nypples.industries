@@ -12,12 +12,20 @@
   --border-strong: rgba(255, 255, 255, 0.16);
   --border-neon: rgba(6, 182, 212, 0.35);
 
-  /* Text */
+  /* Text — contrast tuned for WCAG AA on --bg-deep */
   --text-primary: #ececf2;
-  --text-secondary: #9296a8;
-  --text-muted: #5b5e72;
+  --text-secondary: #a8acbe;
+  --text-muted: #71748a;
 
-  /* Neon palette */
+  /* Accent system — overridable per section.
+     Default = cyan. Sections override via --accent on .section. */
+  --accent: #06b6d4;
+  --accent-bright: #22d3ee;
+  --accent-dim: rgba(6, 182, 212, 0.14);
+  --accent-rgb: 6, 182, 212;
+  --gradient-accent: linear-gradient(135deg, var(--accent), var(--neon-purple));
+
+  /* Neon palette (full set, used for icons/badges/donut) */
   --neon-cyan: #06b6d4;
   --neon-cyan-bright: #22d3ee;
   --neon-cyan-dim: rgba(6, 182, 212, 0.14);
@@ -56,7 +64,10 @@
   --shadow-neon-cyan: 0 0 24px rgba(6, 182, 212, 0.18), 0 0 1px rgba(6, 182, 212, 0.4);
   --shadow-neon-purple: 0 0 24px rgba(139, 92, 246, 0.18), 0 0 1px rgba(139, 92, 246, 0.4);
   --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 12px 40px -12px rgba(0, 0, 0, 0.6);
-  --shadow-card-hover: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 24px 60px -16px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(6, 182, 212, 0.2);
+  --shadow-card-hover: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 24px 60px -16px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(var(--accent-rgb), 0.2);
+
+  /* Focus ring — visible on dark surfaces, AA-compliant */
+  --focus-ring: 0 0 0 2px var(--bg-deep), 0 0 0 4px var(--accent-bright);
 
   /* Easings */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -71,5 +82,56 @@
 
   /* Layout */
   --container-max: 1120px;
+  --container-wide: 1320px;
+  --container-narrow: 760px;
   --header-height: 64px;
+
+  /* Section spacing */
+  --section-pad-y: 96px;
+  --section-pad-y-tight: 64px;
+}
+
+/* Per-section accent overrides.
+   Apply .section--accent-* to a <section> to recolor its
+   accent-line, section-header dot, hover glows, etc. */
+.section--accent-cyan {
+  --accent: var(--neon-cyan);
+  --accent-bright: var(--neon-cyan-bright);
+  --accent-dim: var(--neon-cyan-dim);
+  --accent-rgb: 6, 182, 212;
+}
+
+.section--accent-purple {
+  --accent: var(--neon-purple);
+  --accent-bright: var(--neon-purple-bright);
+  --accent-dim: var(--neon-purple-dim);
+  --accent-rgb: 139, 92, 246;
+}
+
+.section--accent-gold {
+  --accent: var(--neon-gold);
+  --accent-bright: var(--neon-gold-bright);
+  --accent-dim: var(--neon-gold-dim);
+  --accent-rgb: 245, 158, 11;
+}
+
+.section--accent-green {
+  --accent: var(--neon-green);
+  --accent-bright: var(--neon-green-bright);
+  --accent-dim: var(--neon-green-dim);
+  --accent-rgb: 16, 185, 129;
+}
+
+.section--accent-pink {
+  --accent: var(--neon-pink);
+  --accent-bright: #f472b6;
+  --accent-dim: var(--neon-pink-dim);
+  --accent-rgb: 236, 72, 153;
+}
+
+.section--accent-indigo {
+  --accent: var(--neon-indigo);
+  --accent-bright: #818cf8;
+  --accent-dim: var(--neon-indigo-dim);
+  --accent-rgb: 99, 102, 241;
 }

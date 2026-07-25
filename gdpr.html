@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GDPR Compliance — Nypples Industries</title>
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <main>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-header reveal">
+            <div class="accent-line"></div>
+            <h2 class="section-title">GDPR &amp; EU Data Sovereignty</h2>
+            <p class="section-subtitle">Every prompt, every completion, every embedding — processed and stored exclusively on European soil.</p>
+          </div>
+
+          <div class="feature-grid stagger">
+            <div class="feature-card reveal">
+              <div class="feature-card-icon purple">&#127468;&#127466;</div>
+              <h3>EU-Only Data Residency</h3>
+              <p>All inference workloads run on servers physically located at Equinix FR5 in Frankfurt, Germany. Data at rest and in transit never leaves the European Union. No cross-border data transfers to the US, China, or any third country.</p>
+            </div>
+            <div class="feature-card reveal reveal-delay-1">
+              <div class="feature-card-icon cyan">&#128196;</div>
+              <h3>Data Processing Agreement</h3>
+              <p>We provide a standard Article 28 DPA upon request. Our agreement clearly defines: controller vs. processor roles, data categories, processing purposes, sub-processor obligations, breach notification timelines, and data deletion procedures.</p>
+            </div>
+            <div class="feature-card reveal reveal-delay-2">
+              <div class="feature-card-icon gold">&#128737;</div>
+              <h3>No US Sub-Processors</h3>
+              <p>Unlike most AI providers, we do not rely on AWS, Azure, or Google Cloud. Our entire stack runs on our own hardware in a colocation facility. No US company touches your data. No CLOUD Act exposure. No Schrems II concerns.</p>
+            </div>
+            <div class="feature-card reveal reveal-delay-3">
+              <div class="feature-card-icon purple">&#128736;</div>
+              <h3>European AI Act Ready</h3>
+              <p>We are building our compliance framework to align with the EU AI Act. As a provider of general-purpose AI models (GPAI), our obligations include transparency documentation, energy efficiency reporting, and downstream compliance guidance for deployers in high-risk contexts.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="gradient-divider"></div>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-header reveal">
+            <div class="accent-line"></div>
+            <h2 class="section-title">Data Flow Comparison</h2>
+            <p class="section-subtitle">Where your data travels when you use different AI providers.</p>
+          </div>
+
+          <table class="data-table reveal">
+            <thead>
+              <tr>
+                <th>Provider</th>
+                <th>Primary Jurisdiction</th>
+                <th>Data Centers</th>
+                <th>Sub-Processors</th>
+                <th>GDPR SCC Required</th>
+                <th>AI Act Readiness</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="compare-highlight">
+                <td><strong>Nypples Industries</strong></td>
+                <td><span class="badge badge-green">Germany (EU)</span></td>
+                <td>Equinix FR5, Frankfurt</td>
+                <td>None (self-operated)</td>
+                <td><span class="badge badge-green">No</span></td>
+                <td><span class="badge badge-green">In Progress</span></td>
+              </tr>
+              <tr>
+                <td>DeepSeek API</td>
+                <td><span class="badge badge-gold">China</span></td>
+                <td>China</td>
+                <td>Undisclosed</td>
+                <td><span class="badge badge-gold">Required</span></td>
+                <td><span class="badge badge-purple">Not Applicable</span></td>
+              </tr>
+              <tr>
+                <td>OpenAI API</td>
+                <td><span class="badge badge-purple">US</span></td>
+                <td>US, EU (limited)</td>
+                <td>Microsoft Azure</td>
+                <td><span class="badge badge-gold">Required</span></td>
+                <td><span class="badge badge-cyan">Partial</span></td>
+              </tr>
+              <tr>
+                <td>Anthropic API</td>
+                <td><span class="badge badge-purple">US</span></td>
+                <td>US, EU (limited)</td>
+                <td>GCP, AWS</td>
+                <td><span class="badge badge-gold">Required</span></td>
+                <td><span class="badge badge-cyan">Partial</span></td>
+              </tr>
+              <tr>
+                <td>Together AI</td>
+                <td><span class="badge badge-purple">US</span></td>
+                <td>US</td>
+                <td>Multiple US providers</td>
+                <td><span class="badge badge-gold">Required</span></td>
+                <td><span class="badge badge-purple">Limited</span></td>
+              </tr>
+              <tr>
+                <td>Google Gemini API</td>
+                <td><span class="badge badge-purple">US</span></td>
+                <td>Global (US primary)</td>
+                <td>Google Cloud</td>
+                <td><span class="badge badge-gold">Required</span></td>
+                <td><span class="badge badge-cyan">Partial</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <div class="gradient-divider"></div>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-header reveal">
+            <div class="accent-line"></div>
+            <h2 class="section-title">Your Data Rights</h2>
+          </div>
+
+          <ul class="checklist reveal">
+            <li><strong>Right to Access:</strong> Request a copy of all data processed through your account within 30 days.</li>
+            <li><strong>Right to Deletion:</strong> We permanently delete all your prompts, completions, and embeddings upon request. No retention beyond what you specify.</li>
+            <li><strong>Right to Portability:</strong> Export all your data in machine-readable JSON format. No proprietary lock-in.</li>
+            <li><strong>No Training on Your Data:</strong> We never use customer prompts or completions to train, fine-tune, or improve any model. Your data is your data.</li>
+            <li><strong>Encryption at Rest and in Transit:</strong> AES-256 for storage, TLS 1.3 for all API communications.</li>
+            <li><strong>Access Logging:</strong> Full audit trail of who accessed what, when, and from where. Retained for 90 days, exportable on request.</li>
+          </ul>
+
+          <div class="info-box reveal" style="margin-top: 24px;">
+            <strong>The difference:</strong> Most AI APIs treat GDPR compliance as an afterthought — a checkbox. At Nypples, European data sovereignty is the <strong>entire reason we exist</strong>. We built our infrastructure specifically for organizations that cannot or will not send data outside the EU. If your legal team has ever flagged a SaaS tool because of Schrems II, Nypples is the answer.
+          </div>
+
+          <div style="text-align: center; margin-top: 32px;" class="reveal">
+            <a href="pricing.html" class="btn btn-primary">See Pricing &amp; Plans</a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <div id="footer-root"></div>
+
+  <script src="js/nav.js"></script>
+  <script src="js/pricing-calc.js"></script>
+  <script src="js/animations.js"></script>
+</body>
+</html>

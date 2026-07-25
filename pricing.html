@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing — Nypples Industries</title>
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <main>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-header reveal">
+            <div class="accent-line"></div>
+            <h2 class="section-title">Batch Processing</h2>
+            <p class="section-subtitle">Asynchronous, always available. Ideal for document pipelines, data processing, and enterprise workloads.</p>
+          </div>
+
+          <table class="data-table reveal">
+            <thead>
+              <tr>
+                <th>Service</th>
+                <th>Description</th>
+                <th>Unit</th>
+                <th>Price per Unit</th>
+                <th>SLA</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Document Summarization</strong></td>
+                <td>Extractive &amp; abstractive summarization via flagship models</td>
+                <td>Per page (~500 words)</td>
+                <td class="mono price">&euro;0.012</td>
+                <td class="mono">4h turnaround</td>
+              </tr>
+              <tr>
+                <td><strong>Text Classification</strong></td>
+                <td>Multi-label, sentiment, topic categorization</td>
+                <td>Per item</td>
+                <td class="mono price">&euro;0.003</td>
+                <td class="mono">1h turnaround</td>
+              </tr>
+              <tr>
+                <td><strong>Entity Extraction</strong></td>
+                <td>NER, PII detection, structured data extraction</td>
+                <td>Per 1K characters</td>
+                <td class="mono price">&euro;0.005</td>
+                <td class="mono">1h turnaround</td>
+              </tr>
+              <tr>
+                <td><strong>Embedding Generation</strong></td>
+                <td>BGE-M3 / Stella / GTE, 1024-3584d vectors</td>
+                <td>Per 1K tokens</td>
+                <td class="mono price">&euro;0.00008</td>
+                <td class="mono">30min turnaround</td>
+              </tr>
+              <tr>
+                <td><strong>Batch RAG Pipeline</strong></td>
+                <td>Ingest &rarr; chunk &rarr; embed &rarr; index &rarr; retrieve &rarr; generate</td>
+                <td>Custom quote</td>
+                <td class="mono price">Contact</td>
+                <td class="mono">Per SLA</td>
+              </tr>
+              <tr>
+                <td><strong>Batch Chat Completion</strong></td>
+                <td>Submit up to 50K prompts, results within SLA window</td>
+                <td>Per 1M tokens</td>
+                <td class="mono price">See model pricing</td>
+                <td class="mono">8h turnaround</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <div class="gradient-divider"></div>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-header reveal">
+            <div class="accent-line"></div>
+            <h2 class="section-title">Real-Time Chat</h2>
+            <p class="section-subtitle">Premium capacity for interactive applications. Limited availability during startup phase.</p>
+          </div>
+
+          <div class="tiers-grid stagger">
+            <div class="tier-card reveal">
+              <div class="tier-name">Trial</div>
+              <div class="tier-desc">For evaluation and prototyping</div>
+              <div class="tier-price">Free</div>
+              <ul class="tier-features">
+                <li>10 concurrent requests</li>
+                <li>Efficiency-tier models only</li>
+                <li>Rate-limited (5 req/min)</li>
+                <li>10K tokens/month</li>
+                <li>Community support</li>
+                <li>No SLA</li>
+              </ul>
+              <a href="#" class="btn btn-secondary" style="width: 100%; justify-content: center;">Get Started</a>
+            </div>
+
+            <div class="tier-card featured reveal reveal-delay-1">
+              <div class="tier-name">Business</div>
+              <div class="tier-desc">For startups and SMBs</div>
+              <div class="tier-price">&euro;0.06<span>/min</span></div>
+              <ul class="tier-features">
+                <li>100 concurrent requests</li>
+                <li>All models incl. Flagship</li>
+                <li>99.5% uptime SLA</li>
+                <li>Unlimited tokens</li>
+                <li>Email support (4h)</li>
+                <li>GDPR DPA included</li>
+              </ul>
+              <a href="#" class="btn btn-primary" style="width: 100%; justify-content: center;">Subscribe</a>
+            </div>
+
+            <div class="tier-card reveal reveal-delay-2">
+              <div class="tier-name">Enterprise</div>
+              <div class="tier-desc">For high-volume production</div>
+              <div class="tier-price">&euro;0.09<span>/min</span></div>
+              <ul class="tier-features">
+                <li>500 concurrent requests</li>
+                <li>Priority GPU scheduling</li>
+                <li>99.95% uptime SLA</li>
+                <li>Dedicated inference pool</li>
+                <li>24/7 priority support</li>
+                <li>Custom model fine-tuning</li>
+              </ul>
+              <a href="#" class="btn btn-secondary" style="width: 100%; justify-content: center;">Contact Sales</a>
+            </div>
+          </div>
+
+          <div class="info-box reveal" style="margin-top: 32px;">
+            <strong>Startup phase note:</strong> Real-time chat capacity is intentionally limited during our initial phase. As a Huawei Ascend partner, we prioritize <strong>batch processing</strong> workloads where throughput and data sovereignty matter more than latency. Real-time capacity will expand with Phase 2 infrastructure (Q4 2026).
+          </div>
+        </div>
+      </section>
+
+      <div class="gradient-divider"></div>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-header reveal">
+            <div class="accent-line"></div>
+            <h2 class="section-title">Service Level Agreement</h2>
+            <p class="section-subtitle">Uptime commitments, support response times, and incident handling.</p>
+          </div>
+
+          <div class="feature-grid stagger">
+            <div class="feature-card reveal">
+              <h3>Batch Processing SLA</h3>
+              <table class="data-table" style="margin-top: 16px;">
+                <thead>
+                  <tr><th>Metric</th><th>Commitment</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Job acceptance</td><td class="mono">99.9% — always accepting</td></tr>
+                  <tr><td>Summarization turnaround</td><td class="mono">&le; 4 hours</td></tr>
+                  <tr><td>Classification turnaround</td><td class="mono">&le; 1 hour</td></tr>
+                  <tr><td>Embedding turnaround</td><td class="mono">&le; 30 minutes</td></tr>
+                  <tr><td>Batch chat turnaround</td><td class="mono">&le; 8 hours</td></tr>
+                  <tr><td>Missed SLA credit</td><td class="mono">10% of job cost</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="feature-card reveal reveal-delay-1">
+              <h3>Real-Time SLA</h3>
+              <table class="data-table" style="margin-top: 16px;">
+                <thead>
+                  <tr><th>Metric</th><th>Business</th><th>Enterprise</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Uptime</td><td class="mono">99.5%</td><td class="mono">99.95%</td></tr>
+                  <tr><td>Max downtime/mo</td><td class="mono">3.6 hours</td><td class="mono">22 minutes</td></tr>
+                  <tr><td>p95 latency</td><td class="mono">&lt; 3s</td><td class="mono">&lt; 2s</td></tr>
+                  <tr><td>Support response</td><td class="mono">&lt; 4h email</td><td class="mono">&lt; 30min</td></tr>
+                  <tr><td>Incident notification</td><td class="mono">&lt; 1 hour</td><td class="mono">&lt; 15 minutes</td></tr>
+                  <tr><td>Uptime credit</td><td class="mono">5% per 30min</td><td class="mono">10% per 30min</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="info-box reveal" style="margin-top: 24px;">
+            <strong>Exclusions:</strong> SLA does not apply during scheduled maintenance windows (notified 72 hours in advance, conducted 02:00-05:00 CET). Force majeure events, customer-side network issues, and upstream model availability beyond our control are excluded. Full SLA document available upon contract signing.
+          </div>
+
+          <div class="metrics-grid stagger" style="margin-top: 32px;">
+            <div class="metric-card reveal">
+              <div class="metric-value">99.95%</div>
+              <div class="metric-label">Enterprise Uptime Target</div>
+            </div>
+            <div class="metric-card reveal reveal-delay-1">
+              <div class="metric-value">99.9%</div>
+              <div class="metric-label">Batch Availability</div>
+            </div>
+            <div class="metric-card reveal reveal-delay-2">
+              <div class="metric-value">&lt;2s</div>
+              <div class="metric-label">Enterprise p95 Latency</div>
+            </div>
+            <div class="metric-card reveal reveal-delay-3">
+              <div class="metric-value">72h</div>
+              <div class="metric-label">Maint. Notice Period</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="gradient-divider"></div>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-header reveal">
+            <div class="accent-line"></div>
+            <h2 class="section-title">Cost Calculator</h2>
+            <p class="section-subtitle">Estimate your monthly spend based on model choice and token volume.</p>
+          </div>
+
+          <div class="calculator reveal" id="pricing-calc">
+            <label for="calc-model">Model</label>
+            <select id="calc-model" class="calc-model">
+              <option value="1.60">DeepSeek V4 Pro — &euro;1.60/M input</option>
+              <option value="0.25">DeepSeek V4 Flash — &euro;0.25/M input</option>
+              <option value="1.30">GLM-5.2 — &euro;1.30/M input</option>
+              <option value="0.90">Kimi K2.7 Code — &euro;0.90/M input</option>
+              <option value="0.30">Qwen3.7-Plus — &euro;0.30/M input</option>
+              <option value="0.55">Nemotron 3 Ultra — &euro;0.55/M input</option>
+              <option value="0.15">Qwen3.5 9B — &euro;0.15/M input</option>
+            </select>
+
+            <label for="calc-tokens">Tokens per Month (millions)</label>
+            <input type="range" id="calc-tokens" class="calc-tokens" min="0.1" max="500" step="0.1" value="50" style="margin-bottom: 8px;">
+            <div style="display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--text-muted); margin-bottom: 16px;">
+              <span>100K</span>
+              <span id="calc-tokens-label" style="color: var(--neon-cyan);">50M</span>
+              <span>500M</span>
+            </div>
+
+            <label for="calc-output-ratio">Output/Input Ratio</label>
+            <select id="calc-output-ratio" style="margin-bottom: 20px;">
+              <option value="0.5">1:2 (output is 50% of input)</option>
+              <option value="1" selected>1:1 (equal input/output)</option>
+              <option value="2">2:1 (output is 2x input)</option>
+              <option value="5">5:1 (output is 5x input)</option>
+            </select>
+
+            <div class="calc-result">
+              <div class="calc-result-label">Estimated Monthly Cost</div>
+              <div class="calc-result-value" id="calc-result">&euro;0.00<span>/month</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="gradient-divider"></div>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-header reveal">
+            <div class="accent-line"></div>
+            <h2 class="section-title">Market Comparison</h2>
+            <p class="section-subtitle">How Nypples compares to alternative providers for self-hosted EU workloads.</p>
+          </div>
+
+          <table class="data-table reveal">
+            <thead>
+              <tr>
+                <th>Provider</th>
+                <th>Data Residency</th>
+                <th>DeepSeek V4 Pro Input/M</th>
+                <th>Self-Hosted</th>
+                <th>GDPR DPA</th>
+                <th>No US Sub-processors</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="compare-highlight">
+                <td><strong>Nypples Industries</strong></td>
+                <td><span class="badge badge-green">EU (Frankfurt)</span></td>
+                <td class="mono price">&euro;1.60</td>
+                <td><span class="badge badge-green">Yes</span></td>
+                <td><span class="badge badge-green">Yes</span></td>
+                <td><span class="badge badge-green">Yes</span></td>
+              </tr>
+              <tr>
+                <td>DeepSeek API</td>
+                <td><span class="badge badge-gold">China</span></td>
+                <td class="mono">~$0.27 (~&euro;0.25)</td>
+                <td><span class="badge badge-purple">No</span></td>
+                <td><span class="badge badge-purple">No</span></td>
+                <td><span class="badge badge-green">Yes</span></td>
+              </tr>
+              <tr>
+                <td>Together AI</td>
+                <td><span class="badge badge-purple">US</span></td>
+                <td class="mono">$1.74 (~&euro;1.60)</td>
+                <td><span class="badge badge-purple">No</span></td>
+                <td><span class="badge badge-purple">Varies</span></td>
+                <td><span class="badge badge-purple">No</span></td>
+              </tr>
+              <tr>
+                <td>Fireworks AI</td>
+                <td><span class="badge badge-purple">US</span></td>
+                <td class="mono">$1.50 (~&euro;1.38)</td>
+                <td><span class="badge badge-purple">No</span></td>
+                <td><span class="badge badge-purple">Varies</span></td>
+                <td><span class="badge badge-purple">No</span></td>
+              </tr>
+              <tr>
+                <td>HuggingFace Inference</td>
+                <td><span class="badge badge-purple">US/EU</span></td>
+                <td class="mono">$1.50 (~&euro;1.38)</td>
+                <td><span class="badge badge-green">Possible</span></td>
+                <td><span class="badge badge-purple">Enterprise Only</span></td>
+                <td><span class="badge badge-purple">No</span></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="info-box reveal" style="margin-top: 24px;">
+            <strong>Our pricing philosophy:</strong> We price competitively with the market — not a race to the bottom. What you pay for is <strong>data sovereignty</strong>. When you choose Nypples, your prompts and completions never leave the EU. No GPDR Schrems II concerns. No US CLOUD Act exposure. For regulated industries (healthcare, legal, insurance, government), this difference is existential.
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <div id="footer-root"></div>
+
+  <script src="js/nav.js"></script>
+  <script src="js/pricing-calc.js"></script>
+  <script src="js/animations.js"></script>
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Model Catalog — Nypples Industries</title>
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <main>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-header reveal">
+            <div class="accent-line"></div>
+            <h2 class="section-title">Model Catalog</h2>
+            <p class="section-subtitle">All models are self-hosted on Huawei Ascend infrastructure in Frankfurt. Pricing in EUR, billed per 1M tokens.</p>
+          </div>
+
+          <div data-tabs class="reveal">
+            <div class="tabs">
+              <button class="tab-btn active" data-tab="flagship">Flagship</button>
+              <button class="tab-btn" data-tab="efficiency">Efficiency</button>
+              <button class="tab-btn" data-tab="quantized">Quantized</button>
+              <button class="tab-btn" data-tab="embedding">Embeddings</button>
+            </div>
+
+            <div class="tab-content active" data-tab="flagship">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Model</th>
+                    <th>Params</th>
+                    <th>Context</th>
+                    <th>Precision</th>
+                    <th>Real-Time</th>
+                    <th>Input / 1M tok</th>
+                    <th>Output / 1M tok</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>DeepSeek V4 Pro</strong></td>
+                    <td class="mono">1.6T / 49B active</td>
+                    <td class="mono">1M</td>
+                    <td class="mono">FP4+FP8</td>
+                    <td><span class="badge badge-gold">Premium</span></td>
+                    <td class="mono price">&euro;1.60</td>
+                    <td class="mono price">&euro;3.20</td>
+                  </tr>
+                  <tr>
+                    <td><strong>DeepSeek V4 Flash</strong></td>
+                    <td class="mono">284B / 13B active</td>
+                    <td class="mono">1M</td>
+                    <td class="mono">FP4+FP8</td>
+                    <td><span class="badge badge-cyan">Available</span></td>
+                    <td class="mono price">&euro;0.25</td>
+                    <td class="mono price">&euro;0.55</td>
+                  </tr>
+                  <tr>
+                    <td><strong>GLM-5.2</strong></td>
+                    <td class="mono">744B / 40B active</td>
+                    <td class="mono">256K</td>
+                    <td class="mono">FP4</td>
+                    <td><span class="badge badge-gold">Premium</span></td>
+                    <td class="mono price">&euro;1.30</td>
+                    <td class="mono price">&euro;4.05</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Kimi K2.7 Code</strong></td>
+                    <td class="mono">1.1T / ~40B active</td>
+                    <td class="mono">256K</td>
+                    <td class="mono">FP8</td>
+                    <td><span class="badge badge-gold">Premium</span></td>
+                    <td class="mono price">&euro;0.90</td>
+                    <td class="mono price">&euro;3.70</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Qwen3.7-Max <span class="badge badge-purple" style="margin-left: 6px;">Q4 2026</span></strong></td>
+                    <td class="mono">~390B / ~30B active</td>
+                    <td class="mono">128K</td>
+                    <td class="mono">FP8</td>
+                    <td><span class="badge badge-purple">Coming</span></td>
+                    <td class="mono price">&euro;1.15</td>
+                    <td class="mono price">&euro;3.50</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="tab-content" data-tab="efficiency">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Model</th>
+                    <th>Params</th>
+                    <th>Context</th>
+                    <th>Precision</th>
+                    <th>Real-Time</th>
+                    <th>Input / 1M tok</th>
+                    <th>Output / 1M tok</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Qwen3.7-Plus</strong></td>
+                    <td class="mono">~70B</td>
+                    <td class="mono">128K</td>
+                    <td class="mono">FP8</td>
+                    <td><span class="badge badge-cyan">Available</span></td>
+                    <td class="mono price">&euro;0.30</td>
+                    <td class="mono price">&euro;1.20</td>
+                  </tr>
+                  <tr>
+                    <td><strong>NVIDIA Nemotron 3 Ultra</strong></td>
+                    <td class="mono">~50B</td>
+                    <td class="mono">128K</td>
+                    <td class="mono">FP8</td>
+                    <td><span class="badge badge-cyan">Available</span></td>
+                    <td class="mono price">&euro;0.55</td>
+                    <td class="mono price">&euro;3.30</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Gemma 4 31B</strong></td>
+                    <td class="mono">31B</td>
+                    <td class="mono">128K</td>
+                    <td class="mono">FP8</td>
+                    <td><span class="badge badge-cyan">Available</span></td>
+                    <td class="mono price">&euro;0.35</td>
+                    <td class="mono price">&euro;0.90</td>
+                  </tr>
+                  <tr>
+                    <td><strong>GPT-OSS 120B</strong></td>
+                    <td class="mono">120B</td>
+                    <td class="mono">128K</td>
+                    <td class="mono">FP8</td>
+                    <td><span class="badge badge-purple">Batch Only</span></td>
+                    <td class="mono price">&euro;0.15</td>
+                    <td class="mono price">&euro;0.55</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Qwen3.5 9B</strong></td>
+                    <td class="mono">9B</td>
+                    <td class="mono">128K</td>
+                    <td class="mono">FP8</td>
+                    <td><span class="badge badge-cyan">Available</span></td>
+                    <td class="mono price">&euro;0.15</td>
+                    <td class="mono price">&euro;0.23</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="tab-content" data-tab="quantized">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Model</th>
+                    <th>Quantization</th>
+                    <th>VRAM/Node</th>
+                    <th>Min Nodes</th>
+                    <th>Throughput Gain</th>
+                    <th>Input / 1M tok</th>
+                    <th>Output / 1M tok</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>DeepSeek V4 Flash (INT4)</strong></td>
+                    <td class="mono">GPTQ 4-bit</td>
+                    <td class="mono">~85 GB</td>
+                    <td class="mono">2</td>
+                    <td class="mono">+35%</td>
+                    <td class="mono price">&euro;0.18</td>
+                    <td class="mono price">&euro;0.40</td>
+                  </tr>
+                  <tr>
+                    <td><strong>GLM-5.2 (INT4)</strong></td>
+                    <td class="mono">AWQ 4-bit</td>
+                    <td class="mono">~200 GB</td>
+                    <td class="mono">4</td>
+                    <td class="mono">+30%</td>
+                    <td class="mono price">&euro;0.90</td>
+                    <td class="mono price">&euro;2.80</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Qwen3.7-Plus (Q4)</strong></td>
+                    <td class="mono">GPTQ 4-bit</td>
+                    <td class="mono">~35 GB</td>
+                    <td class="mono">1</td>
+                    <td class="mono">+50%</td>
+                    <td class="mono price">&euro;0.20</td>
+                    <td class="mono price">&euro;0.85</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Nemotron 3 Ultra (Q4)</strong></td>
+                    <td class="mono">AWQ 4-bit</td>
+                    <td class="mono">~28 GB</td>
+                    <td class="mono">1</td>
+                    <td class="mono">+50%</td>
+                    <td class="mono price">&euro;0.38</td>
+                    <td class="mono price">&euro;2.30</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="info-box" style="margin-top: 20px;">
+                <strong>About quantization:</strong> Quantized models use 4-bit weight compression (GPTQ/AWQ) to reduce memory footprint and increase throughput. Quality degradation is typically &lt;2% on standard benchmarks while enabling 30-50% higher throughput per GPU node. Ideal for high-volume batch processing and cost-sensitive deployments.
+              </div>
+            </div>
+
+            <div class="tab-content" data-tab="embedding">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Model</th>
+                    <th>Dimensions</th>
+                    <th>Max Tokens</th>
+                    <th>Batch Ready</th>
+                    <th>Price / 1M tokens</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>BGE-M3</strong></td>
+                    <td class="mono">1024d</td>
+                    <td class="mono">8192</td>
+                    <td><span class="badge badge-green">Yes</span></td>
+                    <td class="mono price">&euro;0.08</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Stella-400M</strong></td>
+                    <td class="mono">1024d</td>
+                    <td class="mono">8192</td>
+                    <td><span class="badge badge-green">Yes</span></td>
+                    <td class="mono price">&euro;0.06</td>
+                  </tr>
+                  <tr>
+                    <td><strong>GTE-Qwen2-7B</strong></td>
+                    <td class="mono">3584d</td>
+                    <td class="mono">32768</td>
+                    <td><span class="badge badge-green">Yes</span></td>
+                    <td class="mono price">&euro;0.12</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Jina-Embeddings-v3</strong></td>
+                    <td class="mono">1024d</td>
+                    <td class="mono">8192</td>
+                    <td><span class="badge badge-green">Yes</span></td>
+                    <td class="mono price">&euro;0.07</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="gradient-divider"></div>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-header reveal">
+            <div class="accent-line"></div>
+            <h2 class="section-title">Real-Time Availability Tiers</h2>
+          </div>
+
+          <div class="feature-grid stagger">
+            <div class="feature-card reveal">
+              <div class="feature-card-icon gold">&#9733;</div>
+              <h3>Premium</h3>
+              <p>Limited real-time capacity. Suitable for customer-facing chat and interactive applications. Guaranteed latency under 2 seconds. Available for DeepSeek V4 Pro, GLM-5.2, and Kimi K2.7 Code.</p>
+              <p style="margin-top: 12px;"><span class="pulse-dot"></span> <span style="color: var(--neon-green); font-size: 0.83rem;">500 concurrent slots</span></p>
+            </div>
+            <div class="feature-card reveal reveal-delay-1">
+              <div class="feature-card-icon cyan">&#9889;</div>
+              <h3>Available</h3>
+              <p>Real-time access with moderate concurrency limits. Suitable for internal tools, prototyping, and moderate-traffic applications. Covers Flash variants and efficiency-tier models.</p>
+              <p style="margin-top: 12px;"><span class="pulse-dot"></span> <span style="color: var(--neon-green); font-size: 0.83rem;">250 concurrent slots</span></p>
+            </div>
+            <div class="feature-card reveal reveal-delay-2">
+              <div class="feature-card-icon purple">&#9881;</div>
+              <h3>Batch Only</h3>
+              <p>No real-time SLA. Jobs are queued and processed with priority scheduling. Ideal for document summarization, classification, embedding extraction, and large-scale RAG pipelines. Always available, no concurrency limits.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <div id="footer-root"></div>
+
+  <script src="js/nav.js"></script>
+  <script src="js/pricing-calc.js"></script>
+  <script src="js/animations.js"></script>
+</body>
+</html>

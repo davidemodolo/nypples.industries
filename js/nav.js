@@ -1,23 +1,23 @@
 const NAV_PAGES = [
-  { href: 'index.html', label: 'Home' },
-  { href: 'infrastructure.html', label: 'Infrastructure' },
-  { href: 'models.html', label: 'Models' },
-  { href: 'pricing.html', label: 'Pricing' },
-  { href: 'roadmap.html', label: 'Roadmap' },
-  { href: 'gdpr.html', label: 'GDPR' },
+  { href: '/', label: 'Home' },
+  { href: '/infrastructure/', label: 'Infrastructure' },
+  { href: '/models/', label: 'Models' },
+  { href: '/pricing/', label: 'Pricing' },
+  { href: '/roadmap/', label: 'Roadmap' },
+  { href: '/gdpr/', label: 'GDPR' },
 ];
 
 const FOOTER_LINKS = {
   product: [
-    { href: 'models.html', label: 'Model Catalog' },
-    { href: 'pricing.html', label: 'Pricing' },
-    { href: 'infrastructure.html', label: 'Infrastructure' },
-    { href: 'roadmap.html', label: 'Roadmap' },
+    { href: '/models/', label: 'Model Catalog' },
+    { href: '/pricing/', label: 'Pricing' },
+    { href: '/infrastructure/', label: 'Infrastructure' },
+    { href: '/roadmap/', label: 'Roadmap' },
   ],
   company: [
-    { href: 'gdpr.html', label: 'GDPR &amp; Compliance' },
-    { href: 'infrastructure.html', label: 'About Nypples' },
-    { href: 'roadmap.html', label: 'Vision' },
+    { href: '/gdpr/', label: 'GDPR &amp; Compliance' },
+    { href: '/infrastructure/', label: 'About Nypples' },
+    { href: '/roadmap/', label: 'Vision' },
     { href: '#', label: 'Careers' },
   ],
   resources: [
@@ -28,7 +28,7 @@ const FOOTER_LINKS = {
   ],
 };
 
-const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
 
 function renderDisclaimer() {
   const bar = document.createElement('div');
@@ -45,9 +45,9 @@ function renderHeader() {
   inner.className = 'header-inner';
 
   const logo = document.createElement('a');
-  logo.href = 'index.html';
+  logo.href = '/';
   logo.className = 'logo';
-  logo.innerHTML = '<img src="images/logo.png" alt="Nypples Industries" class="logo-img" width="32" height="32">Nypples Industries';
+  logo.innerHTML = '<img src="/images/logo.png" alt="Nypples Industries" class="logo-img" width="32" height="32">Nypples Industries';
 
   const nav = document.createElement('nav');
   nav.setAttribute('aria-label', 'Main navigation');
@@ -60,7 +60,8 @@ function renderHeader() {
     const a = document.createElement('a');
     a.href = page.href;
     a.textContent = page.label;
-    if (page.href === currentPage) {
+    const pagePath = page.href.replace(/\/$/, '') || '/';
+    if (pagePath === currentPath) {
       a.classList.add('active');
       a.setAttribute('aria-current', 'page');
     }
@@ -102,8 +103,8 @@ function renderFooter() {
   const brand = document.createElement('div');
   brand.className = 'footer-col footer-brand';
   brand.innerHTML = `
-    <a href="index.html" class="logo">
-      <img src="images/logo.png" alt="Nypples Industries" class="logo-img" width="32" height="32">
+    <a href="/" class="logo">
+      <img src="/images/logo.png" alt="Nypples Industries" class="logo-img" width="32" height="32">
       Nypples Industries
     </a>
     <p>Sovereign AI infrastructure for Europe. Self-hosted open-weight LLM inference on Huawei Ascend hardware.</p>

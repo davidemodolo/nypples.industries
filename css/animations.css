@@ -1,115 +1,173 @@
-/* Scroll-triggered animations */
+/* ============================================
+   Scroll-triggered reveals
+   - Default: lift + blur clear
+   - Variants: scale, left, right, clip
+   ============================================ */
 
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: translateY(28px);
+  filter: blur(6px);
+  transition:
+    opacity 0.7s var(--ease-out-expo),
+    transform 0.7s var(--ease-out-expo),
+    filter 0.7s var(--ease-out-expo);
+  will-change: opacity, transform, filter;
 }
 
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+  filter: blur(0);
 }
 
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
-.reveal-delay-4 { transition-delay: 0.4s; }
-
-/* Gradient text animation */
-
-.gradient-text-anim {
-  background: linear-gradient(
-    135deg,
-    var(--neon-cyan) 0%,
-    var(--neon-purple) 25%,
-    var(--neon-cyan) 50%,
-    var(--neon-purple) 75%,
-    var(--neon-cyan) 100%
-  );
-  background-size: 300% 300%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: gradient-shift 6s ease infinite;
+/* Scale-in variant (good for cards/metrics) */
+.reveal-scale {
+  opacity: 0;
+  transform: translateY(20px) scale(0.96);
+  transition:
+    opacity 0.6s var(--ease-out-quint),
+    transform 0.6s var(--ease-spring);
 }
 
-@keyframes gradient-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+.reveal-scale.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
-/* Neon glow pulse */
-
-.glow-pulse {
-  animation: glow-pulse 3s ease-in-out infinite;
+/* Slide from left */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition:
+    opacity 0.7s var(--ease-out-expo),
+    transform 0.7s var(--ease-out-expo);
 }
 
-@keyframes glow-pulse {
-  0%, 100% { box-shadow: 0 0 20px rgba(6, 182, 212, 0.1); }
-  50% { box-shadow: 0 0 35px rgba(6, 182, 212, 0.25); }
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
 }
 
-/* Fade in up */
-
-.fade-in-up {
-  animation: fade-in-up 0.8s ease forwards;
+/* Slide from right */
+.reveal-right {
+  opacity: 0;
+  transform: translateX(32px);
+  transition:
+    opacity 0.7s var(--ease-out-expo),
+    transform 0.7s var(--ease-out-expo);
 }
 
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Clip-path wipe up */
+.reveal-clip {
+  opacity: 1;
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 0.8s var(--ease-out-expo);
+}
+
+.reveal-clip.visible {
+  clip-path: inset(0 0 0 0);
+}
+
+/* Delay utilities */
+.reveal-delay-1 { transition-delay: 0.08s; }
+.reveal-delay-2 { transition-delay: 0.16s; }
+.reveal-delay-3 { transition-delay: 0.24s; }
+.reveal-delay-4 { transition-delay: 0.32s; }
+.reveal-delay-5 { transition-delay: 0.40s; }
+.reveal-delay-6 { transition-delay: 0.48s; }
+
+/* ============================================
+   Stagger — children carry .reveal + .visible
+   Delay is driven by --i (set via nth-child)
+   ============================================ */
+
+.stagger > * {
+  opacity: 0;
+  transform: translateY(22px) scale(0.98);
+  filter: blur(4px);
+  transition:
+    opacity 0.6s var(--ease-out-quint),
+    transform 0.6s var(--ease-out-quint),
+    filter 0.6s var(--ease-out-quint);
+  transition-delay: calc(var(--i, 0) * 0.07s);
+}
+
+.stagger > .visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+.stagger > *:nth-child(1) { --i: 0; }
+.stagger > *:nth-child(2) { --i: 1; }
+.stagger > *:nth-child(3) { --i: 2; }
+.stagger > *:nth-child(4) { --i: 3; }
+.stagger > *:nth-child(5) { --i: 4; }
+.stagger > *:nth-child(6) { --i: 5; }
+.stagger > *:nth-child(7) { --i: 6; }
+.stagger > *:nth-child(8) { --i: 7; }
+
+/* ============================================
+   Hero entrance (plays on load)
+   ============================================ */
+
+.hero-text > * {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: hero-in 0.8s var(--ease-out-expo) forwards;
+}
+
+.hero-text > *:nth-child(1) { animation-delay: 0.05s; }
+.hero-text > *:nth-child(2) { animation-delay: 0.18s; }
+.hero-text > *:nth-child(3) { animation-delay: 0.32s; }
+.hero-text > *:nth-child(4) { animation-delay: 0.42s; }
+
+@keyframes hero-in {
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* Stagger children */
-
-.stagger > * {
+.hero-visual-wrap {
   opacity: 0;
-  transform: translateY(20px);
-  animation: fade-in-up 0.6s ease forwards;
+  transform: translateY(24px) scale(0.97);
+  animation: hero-visual-in 1s var(--ease-out-expo) 0.25s forwards;
 }
 
-.stagger > *:nth-child(1) { animation-delay: 0.1s; }
-.stagger > *:nth-child(2) { animation-delay: 0.2s; }
-.stagger > *:nth-child(3) { animation-delay: 0.3s; }
-.stagger > *:nth-child(4) { animation-delay: 0.4s; }
-.stagger > *:nth-child(5) { animation-delay: 0.5s; }
-.stagger > *:nth-child(6) { animation-delay: 0.6s; }
-
-/* Border glow animation for cards */
-
-.border-glow {
-  position: relative;
+@keyframes hero-visual-in {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
-.border-glow::after {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  background: var(--gradient-border);
-  opacity: 0;
-  z-index: -1;
-  transition: opacity var(--transition-base);
+/* ============================================
+   Gradient text shine
+   ============================================ */
+
+.gradient-text-anim {
+  background: var(--gradient-text);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: text-shine 6s linear infinite;
 }
 
-.border-glow:hover::after {
-  opacity: 0.3;
+@keyframes text-shine {
+  to { background-position: 200% center; }
 }
 
-/* Number count-up (subtle) */
-
-.counter {
-  display: inline-block;
-}
-
-/* Pulse dot for status indicators */
+/* ============================================
+   Pulse dot (status indicators)
+   ============================================ */
 
 .pulse-dot {
   width: 8px;
@@ -118,6 +176,7 @@
   background: var(--neon-green);
   display: inline-block;
   position: relative;
+  box-shadow: 0 0 8px var(--neon-green);
 }
 
 .pulse-dot::after {
@@ -141,18 +200,58 @@
   }
 }
 
-/* Reduced motion */
+/* ============================================
+   Donut segment draw-in (one-shot, won't delay hover)
+   ============================================ */
+
+.donut-segment {
+  stroke-dasharray: var(--len) 9999;
+  stroke-dashoffset: var(--len);
+  transition: stroke-width var(--transition-base), opacity var(--transition-fast);
+}
+
+.donut.is-drawn .donut-segment {
+  animation: donut-draw 1s var(--ease-out-expo) forwards;
+  animation-delay: calc(var(--i, 0) * 0.1s);
+}
+
+@keyframes donut-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* ============================================
+   Reduced motion
+   ============================================ */
 
 @media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
   .reveal,
-  .gradient-text-anim,
-  .glow-pulse,
-  .fade-in-up,
+  .reveal-scale,
+  .reveal-left,
+  .reveal-right,
+  .reveal-clip,
   .stagger > *,
-  .pulse-dot::after {
-    animation: none !important;
-    transition: none !important;
+  .hero-text > *,
+  .hero-visual-wrap {
     opacity: 1 !important;
     transform: none !important;
+    filter: none !important;
+    clip-path: none !important;
+  }
+
+  .donut-segment {
+    stroke-dashoffset: 0 !important;
+  }
+
+  body::before {
+    animation: none !important;
   }
 }

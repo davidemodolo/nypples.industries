@@ -1,6 +1,6 @@
 # Nypples Industries
 
-Fictional startup website — Europe's first Huawei Ascend GPU partner. Self-hosted, GDPR-compliant open-weight LLM inference running on Huawei hardware in Frankfurt.
+Fictional startup website — Europe's first Huawei Ascend GPU partner. Self-hosted, GDPR-compliant open-weight LLM inference running on Huawei hardware in Trento, Italy.
 
 **This is fiction. No real services are offered.**
 

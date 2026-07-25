@@ -22,7 +22,7 @@
           <div class="section-header reveal">
             <div class="accent-line"></div>
             <h2 class="section-title">Model Catalog</h2>
-            <p class="section-subtitle">All models are self-hosted on Huawei Ascend infrastructure in Frankfurt. Pricing in EUR, billed per 1M tokens.</p>
+            <p class="section-subtitle">All models are self-hosted on Huawei Ascend infrastructure in Trento. Pricing in EUR, billed per 1M tokens.</p>
           </div>
 
           <div data-tabs class="reveal">
@@ -82,6 +82,15 @@
                     <td><span class="badge badge-gold">Premium</span></td>
                     <td class="mono price">&euro;0.90</td>
                     <td class="mono price">&euro;3.70</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Kimi K3 <span class="badge badge-purple" style="margin-left: 6px;">Q4 2026</span></strong></td>
+                    <td class="mono">~1.4T / ~46B active</td>
+                    <td class="mono">512K</td>
+                    <td class="mono">FP4+FP8</td>
+                    <td><span class="badge badge-purple">Coming</span></td>
+                    <td class="mono price">&euro;1.10</td>
+                    <td class="mono price">&euro;4.20</td>
                   </tr>
                   <tr>
                     <td><strong>Qwen3.7-Max <span class="badge badge-purple" style="margin-left: 6px;">Q4 2026</span></strong></td>
@@ -274,19 +283,25 @@
 
           <div class="feature-grid stagger">
             <div class="feature-card reveal">
-              <div class="feature-card-icon gold">&#9733;</div>
+              <div class="feature-card-icon gold">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.3 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z"/></svg>
+              </div>
               <h3>Premium</h3>
               <p>Limited real-time capacity. Suitable for customer-facing chat and interactive applications. Guaranteed latency under 2 seconds. Available for DeepSeek V4 Pro, GLM-5.2, and Kimi K2.7 Code.</p>
               <p style="margin-top: 12px;"><span class="pulse-dot"></span> <span style="color: var(--neon-green); font-size: 0.83rem;">500 concurrent slots</span></p>
             </div>
             <div class="feature-card reveal reveal-delay-1">
-              <div class="feature-card-icon cyan">&#9889;</div>
+              <div class="feature-card-icon cyan">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>
+              </div>
               <h3>Available</h3>
               <p>Real-time access with moderate concurrency limits. Suitable for internal tools, prototyping, and moderate-traffic applications. Covers Flash variants and efficiency-tier models.</p>
               <p style="margin-top: 12px;"><span class="pulse-dot"></span> <span style="color: var(--neon-green); font-size: 0.83rem;">250 concurrent slots</span></p>
             </div>
             <div class="feature-card reveal reveal-delay-2">
-              <div class="feature-card-icon purple">&#9881;</div>
+              <div class="feature-card-icon purple">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="6" rx="1"/><rect x="3" y="14" width="18" height="6" rx="1"/><path d="M7 7h.01"/><path d="M7 17h.01"/></svg>
+              </div>
               <h3>Batch Only</h3>
               <p>No real-time SLA. Jobs are queued and processed with priority scheduling. Ideal for document summarization, classification, embedding extraction, and large-scale RAG pipelines. Always available, no concurrency limits.</p>
             </div>

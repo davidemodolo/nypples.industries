@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Careers — Nypples Industries</title>
+  <meta name="description" content="Join the team building Europe's sovereign AI infrastructure. We're hiring MLOps, infrastructure engineers, and backend developers in Trento, Italy.">
+  <link rel="icon" type="image/png" href="/images/logo.png">
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <main>
+
+      <section class="section section--accent-cyan">
+        <div class="container container--narrow">
+          <div class="section-header is-numbered reveal">
+            <span class="section-index">01 / Careers</span>
+            <h2 class="section-title">Build sovereign AI in Trento.</h2>
+            <p class="section-subtitle">We're a small, well-funded team running real hardware. No middle managers. No hyperscaler abstraction layers. Just metal, models, and the mission to keep European data on European soil.</p>
+          </div>
+
+          <div class="bento stagger reveal">
+            <div class="bento-card bento--half">
+              <span class="bento-eyebrow">Location</span>
+              <h3>Trento, Italy</h3>
+              <p>On-site at our colocation facility. We believe infrastructure work requires physical proximity to the hardware. Remote considered for exceptional candidates in EU timezones (&plusmn;2h CET).</p>
+            </div>
+            <div class="bento-card bento--half">
+              <span class="bento-eyebrow">Compensation</span>
+              <h3>Cash + Meaningful Equity</h3>
+              <p>Salaries benchmarked to Milan/Zurich tech markets &mdash; not Italian averages. Every role includes 1.0&ndash;2.5% equity with standard 4-year vest, 1-year cliff. We're 6 people. Your shares matter.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="gradient-divider"></div>
+
+      <section class="section section--accent-purple">
+        <div class="container container--narrow">
+          <div class="section-header is-numbered reveal">
+            <span class="section-index">02 / Openings</span>
+            <h2 class="section-title">Open positions.</h2>
+          </div>
+
+          <div class="job-list">
+
+            <div class="job-card reveal" id="mlops">
+              <div class="job-card-header">
+                <div class="job-title-group">
+                  <h3 class="job-title">Senior MLOps Engineer</h3>
+                  <span class="badge badge-gold">Critical Hire</span>
+                </div>
+                <div class="job-meta">
+                  <span class="job-location">Trento, Italy</span>
+                  <span class="job-type">Full-time &middot; On-site</span>
+                </div>
+              </div>
+              <div class="job-comp">
+                <span class="job-salary">&euro;55K&ndash;70K</span>
+                <span class="job-equity">+ 1.5&ndash;2.5% equity</span>
+              </div>
+              <div class="job-body">
+                <p>You'll own the entire model serving pipeline &mdash; from vLLM adapter configuration on Ascend hardware to the production inference API. This is the role that keeps our models running.</p>
+                <h4>What you'll do</h4>
+                <ul>
+                  <li>Deploy and manage LLM inference on a 20-node Huawei Ascend 910C cluster</li>
+                  <li>Configure vLLM Ascend adapter: tensor parallelism, KV-cache tuning, quantization pipelines</li>
+                  <li>Build CI/CD for model onboarding &mdash; new model goes from weights to production in under 48 hours</li>
+                  <li>Maintain GPU monitoring stack (Prometheus + custom HCCL metrics exporters)</li>
+                  <li>Own the incident response playbook for model serving &mdash; you're pager #2 after the SRE</li>
+                  <li>Contribute CANN operator optimizations back to the vLLM Ascend adapter open-source project</li>
+                </ul>
+                <h4>Relevant experience</h4>
+                <ul>
+                  <li>3+ years running production ML infrastructure (PyTorch, TensorFlow, or JAX at scale)</li>
+                  <li>Deep experience with GPU cluster management &mdash; NVIDIA or AMD, we'll train you on Ascend</li>
+                  <li>Linux systems proficiency: kernel tuning, RDMA networking, container orchestration (Docker, containerd)</li>
+                  <li>Fluent with Python and Bash; Rust or Go is a strong plus</li>
+                  <li>Familiarity with NCCL/RCCL collective communication and RoCE/InfiniBand fabrics</li>
+                  <li>You've read the vLLM source code or contributed to an inference engine before</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="job-card reveal reveal-delay-1" id="infra-engineer">
+              <div class="job-card-header">
+                <div class="job-title-group">
+                  <h3 class="job-title">AI Infrastructure Engineer</h3>
+                  <span class="badge badge-cyan">Hardware Focus</span>
+                </div>
+                <div class="job-meta">
+                  <span class="job-location">Trento, Italy</span>
+                  <span class="job-type">Full-time &middot; On-site</span>
+                </div>
+              </div>
+              <div class="job-comp">
+                <span class="job-salary">&euro;50K&ndash;65K</span>
+                <span class="job-equity">+ 1.0&ndash;1.5% equity</span>
+              </div>
+              <div class="job-body">
+                <p>You'll manage the physical layer &mdash; servers, switches, storage, and power. When a node goes dark at 3 AM, you're the person who knows which cable to reseat.</p>
+                <h4>What you'll do</h4>
+                <ul>
+                  <li>Provision and maintain 20+ Ascend 910C nodes: firmware updates, CANN driver management, health monitoring</li>
+                  <li>Manage the 800 Gbps RoCE v2 fabric: switch configuration (Arista/Mellanox), congestion control, DCQCN tuning</li>
+                  <li>Colocation operations: remote hands coordination, power budget tracking (&lt;12 kW per rack), cooling redundancy</li>
+                  <li>Build the hardware monitoring stack: IPMI, Redfish, thermal sensors, node-level power telemetry</li>
+                  <li>Capacity planning: when do we buy the next 5 nodes?</li>
+                </ul>
+                <h4>Relevant experience</h4>
+                <ul>
+                  <li>3+ years in datacenter operations, HPC, or hardware infrastructure engineering</li>
+                  <li>Hands-on with server hardware: you've racked servers, crimped fiber, and diagnosed PSU failures</li>
+                  <li>Network engineering: VLANs, BGP, RoCE v2 lossless configuration, DCQCN/ECN tuning</li>
+                  <li>Linux systems administration at scale (PXE boot, Kickstart, Ansible, systemd)</li>
+                  <li>Experience with IPMI/BMC, Redfish APIs, or hardware telemetry pipelines</li>
+                  <li>Huawei Ascend or Kunpeng experience is a bonus but not required &mdash; we'll teach you the CANN toolchain</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="job-card reveal reveal-delay-2" id="backend">
+              <div class="job-card-header">
+                <div class="job-title-group">
+                  <h3 class="job-title">Backend Engineer</h3>
+                  <span class="badge badge-purple">API &amp; Platform</span>
+                </div>
+                <div class="job-meta">
+                  <span class="job-location">Trento, Italy / Remote EU</span>
+                  <span class="job-type">Full-time &middot; Hybrid</span>
+                </div>
+              </div>
+              <div class="job-comp">
+                <span class="job-salary">&euro;45K&ndash;58K</span>
+                <span class="job-equity">+ 1.0&ndash;1.5% equity</span>
+              </div>
+              <div class="job-body">
+                <p>You'll build the API gateway, billing system, and developer dashboard. Every customer interaction with our platform goes through code you wrote.</p>
+                <h4>What you'll do</h4>
+                <ul>
+                  <li>Build and maintain the OpenAI-compatible REST and gRPC API gateway</li>
+                  <li>Design the API key management system, rate limiter, and token-based billing pipeline</li>
+                  <li>Implement the customer dashboard: usage analytics, cost breakdowns, model performance graphs</li>
+                  <li>Write the official Python and TypeScript SDKs</li>
+                  <li>Build the batch job scheduler: priority queues, checkpoint/resume, result webhooks</li>
+                </ul>
+                <h4>Relevant experience</h4>
+                <ul>
+                  <li>3+ years building production backend systems (REST APIs, databases, auth)</li>
+                  <li>Strong in at least one systems language (Go, Rust, or C#) plus Python for scripting</li>
+                  <li>Experience with PostgreSQL, Redis, and message queues (NATS, Kafka, or RabbitMQ)</li>
+                  <li>You understand API design deeply: versioning, idempotency, error semantics, rate limiting strategies</li>
+                  <li>Familiarity with OpenAI's API spec or building LLM-powered applications is a plus</li>
+                  <li>Experience with usage-based billing systems (Stripe, Metronome, or custom) is valued</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="job-card reveal reveal-delay-3" id="sre">
+              <div class="job-card-header">
+                <div class="job-title-group">
+                  <h3 class="job-title">Site Reliability Engineer</h3>
+                  <span class="badge badge-green">First SRE Hire</span>
+                </div>
+                <div class="job-meta">
+                  <span class="job-location">Trento, Italy / Remote EU</span>
+                  <span class="job-type">Full-time &middot; Hybrid</span>
+                </div>
+              </div>
+              <div class="job-comp">
+                <span class="job-salary">&euro;50K&ndash;65K</span>
+                <span class="job-equity">+ 1.0&ndash;1.5% equity</span>
+              </div>
+              <div class="job-body">
+                <p>You'll define how we do reliability. Build the observability stack, write the runbooks, own the on-call rotation, and make sure 3 AM pages are rare and actionable.</p>
+                <h4>What you'll do</h4>
+                <ul>
+                  <li>Design and implement the observability stack: Prometheus, Grafana, Loki, and custom Ascend metrics exporters</li>
+                  <li>Define SLOs for inference latency, throughput, and availability per model tier</li>
+                  <li>Build the alerting pipeline: what gets paged vs. what goes to Slack</li>
+                  <li>Own incident management: post-mortems, remediation tracking, and the public status page</li>
+                  <li>Manage Kubernetes cluster for API gateway and supporting services (not model serving &mdash; that's bare metal)</li>
+                  <li>CI/CD pipelines for infrastructure-as-code (Terraform/OpenTofu, Ansible)</li>
+                </ul>
+                <h4>Relevant experience</h4>
+                <ul>
+                  <li>4+ years in SRE, DevOps, or production engineering roles</li>
+                  <li>Deep Kubernetes knowledge: operators, CRDs, Helm, network policies</li>
+                  <li>Observability expertise: Prometheus alerting rules, Grafana dashboards, distributed tracing (OTel)</li>
+                  <li>Infrastructure-as-code: Terraform or OpenTofu, Ansible, GitOps workflows</li>
+                  <li>Comfortable with bare-metal Linux — not everything runs in containers here</li>
+                  <li>Experience writing post-mortems and running blameless incident reviews</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="job-card reveal reveal-delay-4" id="solutions">
+              <div class="job-card-header">
+                <div class="job-title-group">
+                  <h3 class="job-title">Solutions Architect — AI Infrastructure</h3>
+                </div>
+                <div class="job-meta">
+                  <span class="job-location">Trento, Italy / Remote EU</span>
+                  <span class="job-type">Full-time &middot; Hybrid</span>
+                </div>
+              </div>
+              <div class="job-comp">
+                <span class="job-salary">&euro;45K&ndash;58K</span>
+                <span class="job-equity">+ 1.0&ndash;1.5% equity</span>
+              </div>
+              <div class="job-body">
+                <p>You'll be the technical bridge between our infrastructure and the customers deploying on it. Help European enterprises migrate from US-based AI APIs to sovereign inference.</p>
+                <h4>What you'll do</h4>
+                <ul>
+                  <li>Guide enterprise customers through onboarding: model selection, throughput sizing, cost estimation</li>
+                  <li>Design RAG and agentic architectures that run entirely on our infrastructure</li>
+                  <li>Build reference implementations: customer support bot, document summarization pipeline, semantic search stack</li>
+                  <li>Write technical content: migration guides from OpenAI/Anthropic, performance benchmarks, best-practices docs</li>
+                  <li>Feed product requirements back to the engineering team based on customer patterns</li>
+                </ul>
+                <h4>Relevant experience</h4>
+                <ul>
+                  <li>3+ years in solutions architecture, developer relations, or technical consulting</li>
+                  <li>Strong programming skills (Python + at least one of TypeScript, Go, or Java)</li>
+                  <li>Experience with LLM APIs: you've built applications on OpenAI, Anthropic, or open-source models</li>
+                  <li>Familiarity with RAG architectures, vector databases, and embedding pipelines</li>
+                  <li>Excellent written communication &mdash; you'll write docs, guides, and blog posts</li>
+                  <li>GDPR and EU data regulation experience is a strong plus</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="info-box reveal" style="margin-top: 40px;">
+            <strong>Don't see your role?</strong> We're growing fast. If you're passionate about sovereign AI infrastructure, EU data residency, and working close to the metal, reach out anyway. <strong>careers@nypples.industries</strong> &mdash; tell us what you'd build.
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <div id="footer-root"></div>
+
+  <script src="/js/nav.js"></script>
+  <script src="/js/pricing-calc.js"></script>
+  <script src="/js/animations.js"></script>
+</body>
+</html>

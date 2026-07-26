@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Nypples Industries</title>
+  <meta name="description" content="Engineering blog from Europe's first Huawei Ascend GPU partner. Technical deep-dives on sovereign AI, Ascend hardware, and GDPR-native inference.">
+  <link rel="icon" type="image/png" href="/images/logo.png">
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <main>
+
+      <section class="section section--accent-cyan">
+        <div class="container container--narrow">
+          <div class="section-header is-numbered reveal">
+            <span class="section-index">01 / Blog</span>
+            <h2 class="section-title">Engineering blog.</h2>
+            <p class="section-subtitle">Technical deep-dives, infrastructure post-mortems, and commentary on European AI sovereignty. Written by the team building it.</p>
+          </div>
+
+          <div class="blog-grid">
+
+            <a href="/blog/glm-5.2-ascend/" class="blog-card reveal" id="post-1">
+              <div class="blog-card-meta">
+                <span class="badge badge-cyan">Engineering</span>
+                <span class="blog-card-date">July 12, 2026</span>
+              </div>
+              <h3 class="blog-card-title">Running GLM-5.2 on Ascend 910C: A Native Stack Retrospective</h3>
+              <p class="blog-card-excerpt">GLM-5.2 was trained on Ascend 910B hardware &mdash; a fact verified on the official HuggingFace model card. When we deployed it on our 910C cluster, the performance surprised us. We saw 94% of the theoretical TFLOPS utilization on a 4-node shard, thanks to CANN 8.0's improved auto-parallel pass. Here's how we configured the vLLM Ascend adapter, what broke during the first week, and why MindSpore's graph compiler outperforms eager-mode CUDA for this specific MoE architecture.</p>
+              <div class="blog-card-footer">
+                <span class="blog-card-tag">#ascend</span>
+                <span class="blog-card-tag">#glm-5.2</span>
+                <span class="blog-card-tag">#cann-8.0</span>
+              </div>
+            </a>
+
+            <a href="/blog/stop-sending-prompts-to-oregon/" class="blog-card reveal reveal-delay-1" id="post-2">
+              <div class="blog-card-meta">
+                <span class="badge badge-purple">Product</span>
+                <span class="blog-card-date">June 28, 2026</span>
+              </div>
+              <h3 class="blog-card-title">Why European Companies Should Stop Sending Prompts to Oregon</h3>
+              <p class="blog-card-excerpt">A typical European startup using a US-based AI API sends every customer prompt, system instruction, and RAG context across the Atlantic. GDPR Article 28 mandates a documented chain of sub-processors for every data flow. How many of your clients have read OpenAI's DPA? We built Nypples because the answer shouldn't be "none." This post walks through the legal exposure, the technical alternative, and what a fully EU-resident inference pipeline actually looks like &mdash; from silicon to response.</p>
+              <div class="blog-card-footer">
+                <span class="blog-card-tag">#gdpr</span>
+                <span class="blog-card-tag">#sovereignty</span>
+                <span class="blog-card-tag">#compliance</span>
+              </div>
+            </a>
+
+            <a href="/blog/roce-v2-deep-dive/" class="blog-card reveal reveal-delay-2" id="post-3">
+              <div class="blog-card-meta">
+                <span class="badge badge-cyan">Engineering</span>
+                <span class="blog-card-date">June 15, 2026</span>
+              </div>
+              <h3 class="blog-card-title">800 Gbps RoCE v2 on Huawei: Our Network Fabric Deep-Dive</h3>
+              <p class="blog-card-excerpt">When you shard a 1.6T-parameter MoE model across 4 nodes, the all-to-all dispatch between experts becomes the bottleneck &mdash; not the matmuls. We designed our 4-group topology to minimize cross-group communication for MoE routing. This post covers our RDMA tuning parameters, the CANN NIC offload configuration that reduced tail latency by 40%, and why we chose a leaf-spine topology over a full mesh. Includes iperf3 benchmarks and NCCL-equivalent HCCL bandwidth measurements.</p>
+              <div class="blog-card-footer">
+                <span class="blog-card-tag">#networking</span>
+                <span class="blog-card-tag">#roce-v2</span>
+                <span class="blog-card-tag">#ascend-910c</span>
+              </div>
+            </a>
+
+            <a href="/blog/unit-economics-self-hosted/" class="blog-card reveal reveal-delay-3" id="post-4">
+              <div class="blog-card-meta">
+                <span class="badge badge-gold">Business</span>
+                <span class="blog-card-date">May 30, 2026</span>
+              </div>
+              <h3 class="blog-card-title">The Unit Economics of Self-Hosted Inference: 20x Ascend vs. Hyperscaler GPU Rental</h3>
+              <p class="blog-card-excerpt">At &euro;1M capex for 20 nodes, our cost per GPU-hour is &euro;0.19 over 5 years &mdash; compared to &euro;1.80&ndash;2.50/hr for equivalent cloud H100 instances. Colocation, power, and cooling add &euro;0.04/hr per node. This post breaks down the full TCO model: hardware depreciation, Trento colocation rates, Italian industrial electricity pricing, and the break-even point at 25% utilization. We also compare against renting Ascend instances from Huawei Cloud Europe (yes, they exist).</p>
+              <div class="blog-card-footer">
+                <span class="blog-card-tag">#economics</span>
+                <span class="blog-card-tag">#tco</span>
+                <span class="blog-card-tag">#startup</span>
+              </div>
+            </a>
+
+            <a href="/blog/vllm-ascend-port/" class="blog-card reveal reveal-delay-4" id="post-5">
+              <div class="blog-card-meta">
+                <span class="badge badge-purple">Research</span>
+                <span class="blog-card-date">April 18, 2026</span>
+              </div>
+              <h3 class="blog-card-title">vLLM on Ascend: Porting an Open-Source Inference Engine to CANN 8.0</h3>
+              <p class="blog-card-excerpt">The vLLM community's Ascend adapter is a remarkable piece of open-source engineering &mdash; it maps CUDA kernels to CANN operators with surprisingly low overhead. But the port isn't complete. We maintain a small set of custom Ascend-only CUDA-to-CANN shim layers for attention flash decoding and grouped-query attention. This post details our fork's divergence from upstream, the 7 patches we contributed back, and a roadmap for full upstream parity by Q1 2027. Includes PagedAttention benchmarks on Ascend vs. A100.</p>
+              <div class="blog-card-footer">
+                <span class="blog-card-tag">#vllm</span>
+                <span class="blog-card-tag">#cann</span>
+                <span class="blog-card-tag">#opensource</span>
+              </div>
+            </a>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <div id="footer-root"></div>
+
+  <script src="/js/nav.js"></script>
+  <script src="/js/pricing-calc.js"></script>
+  <script src="/js/animations.js"></script>
+</body>
+</html>

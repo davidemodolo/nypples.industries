@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Reference — Nypples Industries</title>
+  <meta name="description" content="OpenAI-compatible REST API for self-hosted LLM inference on Huawei Ascend infrastructure. Chat completions, embeddings, and model management.">
+  <link rel="icon" type="image/png" href="/images/logo.png">
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <main>
+
+      <section class="section section--accent-cyan">
+        <div class="container container--narrow">
+          <div class="section-header is-numbered reveal">
+            <span class="section-index">01 / API</span>
+            <h2 class="section-title">OpenAI-compatible API.</h2>
+            <p class="section-subtitle">Drop-in replacement for the OpenAI Python SDK. Swap <code>api.nypples.industries</code> for <code>api.openai.com</code> and your code runs unchanged &mdash; on European soil.</p>
+          </div>
+
+          <div class="api-callout reveal">
+            <div class="api-callout-header">
+              <span class="api-callout-badge">Base URL</span>
+            </div>
+            <code class="api-endpoint">https://api.nypples.industries/v1</code>
+          </div>
+        </div>
+      </section>
+
+      <div class="gradient-divider"></div>
+
+      <!-- Authentication -->
+      <section class="section section--accent-purple section--tight">
+        <div class="container container--narrow">
+          <div class="section-header is-numbered reveal">
+            <span class="section-index">02 / Auth</span>
+            <h2 class="section-title">Authentication.</h2>
+            <p class="section-subtitle">All API requests require a valid API key. Generate keys from the Nypples dashboard.</p>
+          </div>
+
+          <div class="api-block reveal">
+            <div class="api-block-header">
+              <span class="api-method api-method-post">POST</span>
+              <span class="api-block-path">— Bearer token, identical to OpenAI's auth scheme.</span>
+            </div>
+            <p class="api-block-desc">Include your API key in the <code>Authorization</code> header. All API keys are scoped to your organization and rate-limited per tier.</p>
+            <pre class="code-block"><code><span class="code-keyword">curl</span> https://api.nypples.industries/v1/models \
+  -H <span class="code-string">"Authorization: Bearer nyp_sk_xxxxxxxxxxxxxxxxxxxxxxxx"</span></code></pre>
+          </div>
+
+          <div class="info-box reveal">
+            <strong>API key format:</strong> Keys use the prefix <code>nyp_sk_</code> followed by 32 hex characters. You can create, rotate, and revoke keys from the <strong>Dashboard &rarr; API Keys</strong> section.
+          </div>
+        </div>
+      </section>
+
+      <div class="gradient-divider"></div>
+
+      <!-- Chat Completions -->
+      <section class="section section--accent-cyan section--tight">
+        <div class="container container--narrow">
+          <div class="section-header is-numbered reveal">
+            <span class="section-index">03 / Chat</span>
+            <h2 class="section-title">Chat completions.</h2>
+            <p class="section-subtitle">OpenAI-compatible <code>/v1/chat/completions</code> endpoint. Supports streaming, system prompts, tool calling, and structured output.</p>
+          </div>
+
+          <div class="api-block reveal">
+            <div class="api-block-header">
+              <span class="api-method api-method-post">POST</span>
+              <code class="api-block-path">/v1/chat/completions</code>
+            </div>
+            <pre class="code-block"><code><span class="code-keyword">curl</span> https://api.nypples.industries/v1/chat/completions \
+  -H <span class="code-string">"Authorization: Bearer $NYPPIES_API_KEY"</span> \
+  -H <span class="code-string">"Content-Type: application/json"</span> \
+  -d <span class="code-string">'{
+    "model": "deepseek-v4-pro",
+    "messages": [
+      {"role": "system", "content": "You are a helpful assistant."},
+      {"role": "user", "content": "Explain GPU tensor parallelism in one sentence."}
+    ],
+    "temperature": 0.7,
+    "max_tokens": 200,
+    "stream": false
+  }'</span></code></pre>
+          </div>
+
+          <div class="api-block reveal reveal-delay-1">
+            <div class="api-block-header">
+              <span class="api-sdk-label">Python SDK</span>
+            </div>
+            <pre class="code-block"><code><span class="code-keyword">from</span> openai <span class="code-keyword">import</span> OpenAI
+
+client = OpenAI(
+    api_key=<span class="code-string">"nyp_sk_xxxxxxxxxxxxxxxxxxxxxxxx"</span>,
+    base_url=<span class="code-string">"https://api.nypples.industries/v1"</span>
+)
+
+response = client.chat.completions.create(
+    model=<span class="code-string">"deepseek-v4-pro"</span>,
+    messages=[
+        {<span class="code-string">"role"</span>: <span class="code-string">"system"</span>, <span class="code-string">"content"</span>: <span class="code-string">"You are a helpful assistant."</span>},
+        {<span class="code-string">"role"</span>: <span class="code-string">"user"</span>, <span class="code-string">"content"</span>: <span class="code-string">"What is the capital of Italy?"</span>}
+    ],
+    temperature=<span class="code-number">0.7</span>,
+    max_tokens=<span class="code-number">200</span>
+)
+
+print(response.choices[<span class="code-number">0</span>].message.content)</code></pre>
+          </div>
+
+          <div class="api-block reveal reveal-delay-2">
+            <div class="api-block-header">
+              <span class="api-method api-method-post">POST</span>
+              <code class="api-block-path">/v1/chat/completions</code>
+              <span class="api-block-detail">&mdash; Streaming</span>
+            </div>
+            <pre class="code-block"><code><span class="code-keyword">from</span> openai <span class="code-keyword">import</span> OpenAI
+
+client = OpenAI(
+    api_key=<span class="code-string">"nyp_sk_xxxxxxxxxxxxxxxxxxxxxxxx"</span>,
+    base_url=<span class="code-string">"https://api.nypples.industries/v1"</span>
+)
+
+stream = client.chat.completions.create(
+    model=<span class="code-string">"deepseek-v4-flash"</span>,
+    messages=[
+        {<span class="code-string">"role"</span>: <span class="code-string">"user"</span>, <span class="code-string">"content"</span>: <span class="code-string">"Write a haiku about GPUs."</span>}
+    ],
+    stream=<span class="code-keyword">True</span>
+)
+
+<span class="code-keyword">for</span> chunk <span class="code-keyword">in</span> stream:
+    <span class="code-keyword">if</span> chunk.choices[<span class="code-number">0</span>].delta.content:
+        print(chunk.choices[<span class="code-number">0</span>].delta.content, end=<span class="code-string">""</span>)</code></pre>
+          </div>
+
+          <h4 class="api-params-heading reveal">Supported parameters</h4>
+          <div class="table-wrap reveal">
+            <table class="data-table">
+              <thead>
+                <tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>model</code></td><td>string</td><td>&mdash;</td><td>Model ID. See <a href="/models/">Model Catalog</a> for supported values.</td></tr>
+                <tr><td><code>messages</code></td><td>array</td><td>&mdash;</td><td>List of messages in OpenAI format.</td></tr>
+                <tr><td><code>temperature</code></td><td>float</td><td>0.7</td><td>Sampling temperature, 0.0&ndash;2.0.</td></tr>
+                <tr><td><code>max_tokens</code></td><td>int</td><td>4096</td><td>Maximum tokens in the response. Model-dependent max.</td></tr>
+                <tr><td><code>stream</code></td><td>bool</td><td>false</td><td>Enable token-by-token streaming.</td></tr>
+                <tr><td><code>top_p</code></td><td>float</td><td>1.0</td><td>Nucleus sampling.</td></tr>
+                <tr><td><code>frequency_penalty</code></td><td>float</td><td>0.0</td><td>Penalty based on existing token frequency.</td></tr>
+                <tr><td><code>presence_penalty</code></td><td>float</td><td>0.0</td><td>Penalty based on token presence.</td></tr>
+                <tr><td><code>stop</code></td><td>string|array</td><td>null</td><td>Stop sequence(s).</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <div class="gradient-divider"></div>
+
+      <!-- Embeddings -->
+      <section class="section section--accent-purple section--tight">
+        <div class="container container--narrow">
+          <div class="section-header is-numbered reveal">
+            <span class="section-index">04 / Embeddings</span>
+            <h2 class="section-title">Embeddings API.</h2>
+            <p class="section-subtitle">Generate vector embeddings for text. Compatible with OpenAI's <code>/v1/embeddings</code> format.</p>
+          </div>
+
+          <div class="api-block reveal">
+            <div class="api-block-header">
+              <span class="api-method api-method-post">POST</span>
+              <code class="api-block-path">/v1/embeddings</code>
+            </div>
+            <pre class="code-block"><code><span class="code-keyword">curl</span> https://api.nypples.industries/v1/embeddings \
+  -H <span class="code-string">"Authorization: Bearer $NYPPIES_API_KEY"</span> \
+  -H <span class="code-string">"Content-Type: application/json"</span> \
+  -d <span class="code-string">'{
+    "model": "bge-m3",
+    "input": "Your text to embed goes here."
+  }'</span></code></pre>
+          </div>
+
+          <div class="api-block reveal reveal-delay-1">
+            <div class="api-block-header">
+              <span class="api-sdk-label">Python SDK</span>
+            </div>
+            <pre class="code-block"><code><span class="code-keyword">from</span> openai <span class="code-keyword">import</span> OpenAI
+
+client = OpenAI(
+    api_key=<span class="code-string">"nyp_sk_xxxxxxxxxxxxxxxxxxxxxxxx"</span>,
+    base_url=<span class="code-string">"https://api.nypples.industries/v1"</span>
+)
+
+response = client.embeddings.create(
+    model=<span class="code-string">"bge-m3"</span>,
+    input=<span class="code-string">"European sovereign AI infrastructure"</span>
+)
+
+print(response.data[<span class="code-number">0</span>].embedding[:<span class="code-number">5</span>])  <span class="code-comment"># [0.023, -0.041, 0.015, ...]</span></code></pre>
+          </div>
+        </div>
+      </section>
+
+      <div class="gradient-divider"></div>
+
+      <!-- Models list -->
+      <section class="section section--accent-cyan section--tight">
+        <div class="container container--narrow">
+          <div class="section-header is-numbered reveal">
+            <span class="section-index">05 / Models</span>
+            <h2 class="section-title">List available models.</h2>
+            <p class="section-subtitle">Retrieve the list of models available to your API key. Mirrors <code>/v1/models</code>.</p>
+          </div>
+
+          <div class="api-block reveal">
+            <div class="api-block-header">
+              <span class="api-method api-method-get">GET</span>
+              <code class="api-block-path">/v1/models</code>
+            </div>
+            <pre class="code-block"><code><span class="code-keyword">curl</span> https://api.nypples.industries/v1/models \
+  -H <span class="code-string">"Authorization: Bearer $NYPPIES_API_KEY"</span></code></pre>
+          </div>
+        </div>
+      </section>
+
+      <div class="gradient-divider"></div>
+
+      <!-- Rate limits & errors -->
+      <section class="section section--accent-purple section--tight">
+        <div class="container container--narrow">
+          <div class="section-header is-numbered reveal">
+            <span class="section-index">06 / Limits</span>
+            <h2 class="section-title">Rate limits &amp; errors.</h2>
+          </div>
+
+          <div class="bento stagger">
+            <div class="bento-card reveal bento--half">
+              <span class="bento-eyebrow">Rate limits</span>
+              <h3>Per-tier concurrency</h3>
+              <p>Premium real-time: 500 concurrent slots. Standard real-time: 250 concurrent slots. Batch: unlimited queued volume. Embeddings: 2,000 requests/min. Exceeding limits returns HTTP 429.</p>
+            </div>
+            <div class="bento-card reveal reveal-delay-1 bento--half">
+              <span class="bento-eyebrow">Error codes</span>
+              <h3>Standard HTTP semantics</h3>
+              <p><code>400</code> Invalid request &middot; <code>401</code> Invalid API key &middot; <code>429</code> Rate limit exceeded &middot; <code>500</code> Internal server error. All errors return <code>{"error": {"message": "...", "type": "..."}}</code> matching OpenAI's format.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <div id="footer-root"></div>
+
+  <script src="/js/nav.js"></script>
+  <script src="/js/pricing-calc.js"></script>
+  <script src="/js/animations.js"></script>
+</body>
+</html>

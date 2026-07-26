@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>System Status — Nypples Industries</title>
+  <meta name="description" content="Real-time operational status for all Nypples Industries services: model availability, latency, incident history.">
+  <link rel="icon" type="image/png" href="/images/logo.png">
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <main>
+
+      <section class="section section--accent-cyan">
+        <div class="container">
+          <div class="section-header is-numbered reveal">
+            <span class="section-index">01 / Status</span>
+            <h2 class="section-title">System status.</h2>
+            <p class="section-subtitle">Real-time operational status across all models and infrastructure. Updated every 60 seconds.</p>
+          </div>
+
+          <!-- Overall status banner -->
+          <div class="status-banner reveal" id="status-banner">
+            <span class="status-banner-dot" id="status-banner-dot"></span>
+            <span class="status-banner-text" id="status-banner-text">Loading...</span>
+            <span class="status-banner-time" id="status-banner-time"></span>
+          </div>
+
+          <!-- Model availability bars -->
+          <div class="status-grid reveal" id="status-grid">
+            <!-- populated by status.js -->
+          </div>
+
+        </div>
+      </section>
+
+      <div class="gradient-divider"></div>
+
+      <!-- Incidents -->
+      <section class="section section--accent-purple">
+        <div class="container container--narrow">
+          <div class="section-header is-numbered reveal">
+            <span class="section-index">02 / Incidents</span>
+            <h2 class="section-title">Incident history.</h2>
+            <p class="section-subtitle">Documented service disruptions and resolution timelines. All times in CET (UTC+2).</p>
+          </div>
+
+          <div class="incident-list">
+
+            <div class="incident-card incident-resolved reveal">
+              <div class="incident-header">
+                <span class="incident-status badge badge-green">Resolved</span>
+                <span class="incident-date">2026-07-18 &middot; 14:32&ndash;17:04 CET</span>
+              </div>
+              <h3 class="incident-title">Elevated latency on DeepSeek V4 Pro real-time tier</h3>
+              <p>A network misconfiguration during a RoCE v2 fabric update caused intermittent packet loss between node groups 1 and 2. Real-time requests were routed to group 3 with no impact to availability, but p95 latency increased from 1.2s to 4.8s. Rolled back fabric config at 16:22, full recovery confirmed at 17:04. No data loss.</p>
+            </div>
+
+            <div class="incident-card incident-resolved reveal reveal-delay-1">
+              <div class="incident-header">
+                <span class="incident-status badge badge-green">Resolved</span>
+                <span class="incident-date">2026-06-29 &middot; 09:15&ndash;11:48 CET</span>
+              </div>
+              <h3 class="incident-title">GLM-5.2 batch queue backlog due to GPU memory leak</h3>
+              <p>A memory leak in the vLLM Ascend adapter (version 0.8.2) caused gradual VRAM exhaustion on 3 nodes running GLM-5.2 batch inference. Queue depth grew to ~45K jobs before detection. Patched to vLLM adapter 0.8.3 with a 6-hour validation window. Affected batch jobs were reprocessed within 90 minutes of fix. Real-time tier unaffected.</p>
+            </div>
+
+            <div class="incident-card incident-resolved reveal reveal-delay-2">
+              <div class="incident-header">
+                <span class="incident-status badge badge-green">Resolved</span>
+                <span class="incident-date">2026-06-11 &middot; 03:22&ndash;03:47 CET</span>
+              </div>
+              <h3 class="incident-title">Scheduled infrastructure maintenance</h3>
+              <p>Planned firmware update on all 20 Ascend 910C nodes (CANN 7.8 &rarr; 8.0). Routes were drained 30 minutes before window. Zero customer impact. Maintenance window was 03:00&ndash;06:00 CET; completed early at 03:47.</p>
+            </div>
+
+            <div class="incident-card incident-resolved reveal reveal-delay-3">
+              <div class="incident-header">
+                <span class="incident-status badge badge-green">Resolved</span>
+                <span class="incident-date">2026-05-22 &middot; 19:08&ndash;19:31 CET</span>
+              </div>
+              <h3 class="incident-title">Stella-400M embedding endpoint returning 503</h3>
+              <p>An automatic CANN runtime update on one compute node triggered an incompatible driver state. Stella-400M endpoint failed health checks and was removed from the load balancer pool. Node was drained, rebooted, and re-validated. 23-minute partial degradation for Stella-400M only. All other embedding models remained operational.</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <div class="gradient-divider"></div>
+
+      <!-- Uptime history -->
+      <section class="section section--accent-green">
+        <div class="container container--narrow">
+          <div class="section-header is-numbered reveal">
+            <span class="section-index">03 / Uptime</span>
+            <h2 class="section-title">Historical uptime.</h2>
+            <p class="section-subtitle">30-day rolling uptime across all production services.</p>
+          </div>
+
+          <div class="uptime-grid reveal" id="uptime-grid">
+            <div class="uptime-stat">
+              <span class="uptime-value" style="background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">99.97%</span>
+              <span class="uptime-label">Global Platform</span>
+              <span class="uptime-sublabel">Last 30 days</span>
+            </div>
+            <div class="uptime-stat">
+              <span class="uptime-value" style="background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">99.99%</span>
+              <span class="uptime-label">Batch Processing</span>
+              <span class="uptime-sublabel">Queue uptime</span>
+            </div>
+            <div class="uptime-stat">
+              <span class="uptime-value" style="background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">99.95%</span>
+              <span class="uptime-label">Real-Time API</span>
+              <span class="uptime-sublabel">Premium tier</span>
+            </div>
+            <div class="uptime-stat">
+              <span class="uptime-value" style="background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">100%</span>
+              <span class="uptime-label">Embedding API</span>
+              <span class="uptime-sublabel">No incidents</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <div id="footer-root"></div>
+
+  <script src="/js/nav.js"></script>
+  <script src="/js/status.js"></script>
+  <script src="/js/pricing-calc.js"></script>
+  <script src="/js/animations.js"></script>
+</body>
+</html>

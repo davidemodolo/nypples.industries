@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why European Companies Should Stop Sending Prompts to Oregon — Nypples Industries</title>
+  <meta name="description" content="A typical European startup using a US-based AI API sends every customer prompt across the Atlantic. GDPR Article 28 mandates a documented chain of sub-processors for every data flow.">
+  <link rel="icon" type="image/png" href="/images/logo.png">
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <main>
+
+      <section class="section section--accent-purple">
+        <div class="container container--narrow">
+          <div class="section-header is-numbered reveal">
+            <span class="section-index">Blog / Product</span>
+            <h2 class="section-title">Why European Companies Should Stop Sending Prompts to Oregon.</h2>
+            <div class="blog-post-meta">
+              <span class="badge badge-purple">Product</span>
+              <span class="blog-post-date">June 28, 2026 &middot; 11 min read</span>
+            </div>
+          </div>
+
+          <div class="blog-post-body reveal reveal-delay-1">
+
+            <p class="blog-post-intro">A typical European startup using a US-based AI API sends every customer prompt, system instruction, and RAG context across the Atlantic. GDPR Article 28 mandates a documented chain of sub-processors for every data flow. How many of your clients have read OpenAI&rsquo;s DPA? We built Nypples because the answer shouldn&rsquo;t be &ldquo;none.&rdquo;</p>
+
+            <h3>The invisible data export</h3>
+
+            <p>When a Hamburg-based legal-tech startup sends a client&rsquo;s case documents to a US-hosted LLM API, they&rsquo;re not just &ldquo;using AI.&rdquo; They&rsquo;re exporting personal data to a third country. GDPR Article 44 through 49 govern these transfers. The legal basis for US transfers under the EU-US Data Privacy Framework exists on paper, but it requires the US-based processor to be certified under the framework &mdash; and many AI API providers have ambiguous certification status.</p>
+
+            <p>Even when certification exists, Article 28 requires a Data Processing Agreement (DPA) that documents <em>every sub-processor</em> in the chain. For a typical US AI API call, that chain might include: the API provider, their cloud infrastructure provider (AWS/GCP/Azure), any third-party content moderation APIs, logging and monitoring services, and CDN edge nodes. Each link is a potential GDPR exposure point.</p>
+
+            <p>Most European developers using these APIs have never read the DPA. Most couldn&rsquo;t list the sub-processors. This isn&rsquo;t negligence &mdash; the documentation is deliberately opaque. But ignorance isn&rsquo;t a defense under GDPR.</p>
+
+            <h3>What Article 28 actually requires</h3>
+
+            <p>The regulation is specific. Processors must:</p>
+
+            <ul>
+              <li>Process personal data only on documented instructions from the controller</li>
+              <li>Ensure persons authorized to process the data have committed themselves to confidentiality</li>
+              <li>Implement appropriate technical and organizational measures (encryption, access control, audit logging)</li>
+              <li>Not engage another processor without prior specific or general written authorization</li>
+              <li>Assist the controller in responding to data subject requests</li>
+              <li>Delete or return all personal data at the end of the service</li>
+              <li>Make available all information necessary to demonstrate compliance</li>
+            </ul>
+
+            <p>When you use a US-based API, you&rsquo;re relying on their self-attestation for every one of these points. If their DPA says &ldquo;we may use sub-processors at our discretion,&rdquo; you&rsquo;ve already lost chain-of-custody. This is why enterprise procurement teams spend months on vendor security assessments before signing an AI API contract.</p>
+
+            <h3>The Schrems II shadow</h3>
+
+            <p>The 2020 Schrems II ruling invalidated the Privacy Shield framework because US surveillance laws (FISA Section 702, Executive Order 12333) were deemed incompatible with EU fundamental rights. The current EU-US Data Privacy Framework attempts to address this, but legal challenges are already in progress (Schrems III is widely expected).</p>
+
+            <p>Until the legal situation stabilizes, any European company handling sensitive data &mdash; healthcare records, legal documents, financial transactions, HR data &mdash; has a clear risk incentive to keep that data within EU borders. The safest interpretation of GDPR is: if it never leaves the EU, you don&rsquo;t need to worry about adequacy decisions.</p>
+
+            <h3>What EU-resident inference looks like in practice</h3>
+
+            <p>At Nypples, the data flow is deliberately simple:</p>
+
+            <ol>
+              <li>Your client sends an API request to <code>api.nypples.industries</code></li>
+              <li>Our API gateway in Trento validates the API key and routes to an available model shard</li>
+              <li>The prompt is processed on Ascend 910C nodes in our colocation facility &mdash; within the same building as the gateway</li>
+              <li>The completion is returned to the client</li>
+              <li>No logs containing prompt or completion data leave the facility. Telemetry (token counts, latency, errors) is aggregated and anonymized before storage</li>
+            </ol>
+
+            <p>There are zero sub-processors for inference. No CDN for API calls (our latency to Frankfurt is 14ms, to Amsterdam 18ms &mdash; a CDN adds complexity with no benefit). No third-party moderation API. No US-based cloud provider in the data path.</p>
+
+            <p>This isn&rsquo;t a marketing claim. It&rsquo;s a constraint we designed the infrastructure around. Our DPA is 6 pages because there&rsquo;s not much to document when the data stays in one room.</p>
+
+            <h3>The competitive argument</h3>
+
+            <p>GDPR compliance isn&rsquo;t just a legal checkbox &mdash; it&rsquo;s a competitive advantage. European enterprise customers, government agencies, and regulated industries are actively seeking AI providers who can demonstrate EU-only data residency. The market exists. It&rsquo;s growing. And it&rsquo;s currently underserved by US-based API providers who view GDPR compliance as a cost center rather than a product feature.</p>
+
+            <p>We think that&rsquo;s a mistake &mdash; and an opportunity.</p>
+
+          </div>
+
+          <div class="cta-center reveal">
+            <a href="/blog/" class="btn btn-secondary">
+              <span>&larr; Back to blog</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <div id="footer-root"></div>
+  <script src="/js/nav.js"></script>
+  <script src="/js/pricing-calc.js"></script>
+  <script src="/js/animations.js"></script>
+</body>
+</html>

@@ -3,6 +3,8 @@ const NAV_PAGES = [
   { href: '/infrastructure/', label: 'Infrastructure' },
   { href: '/models/', label: 'Models' },
   { href: '/pricing/', label: 'Pricing' },
+  { href: '/api-docs/', label: 'API Docs' },
+  { href: '/status/', label: 'Status' },
   { href: '/roadmap/', label: 'Roadmap' },
   { href: '/gdpr/', label: 'GDPR' },
 ];
@@ -18,13 +20,13 @@ const FOOTER_LINKS = {
     { href: '/gdpr/', label: 'GDPR &amp; Compliance' },
     { href: '/infrastructure/', label: 'About Nypples' },
     { href: '/roadmap/', label: 'Vision' },
-    { href: '#', label: 'Careers' },
+    { href: '/jobs/', label: 'Careers' },
   ],
   resources: [
-    { href: '#', label: 'API Docs' },
-    { href: '#', label: 'Status Page' },
-    { href: '#', label: 'Changelog' },
-    { href: '#', label: 'Contact' },
+    { href: '/api-docs/', label: 'API Docs' },
+    { href: '/status/', label: 'Status Page' },
+    { href: '/blog/', label: 'Blog' },
+    { href: '/jobs/', label: 'Careers' },
   ],
 };
 

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vLLM on Ascend: Porting an Open-Source Inference Engine to CANN 8.0 — Nypples Industries</title>
+  <meta name="description" content="The vLLM community's Ascend adapter maps CUDA kernels to CANN operators with surprisingly low overhead. Here's what we maintain, what we patched, and what still needs work.">
+  <link rel="icon" type="image/png" href="/images/logo.png">
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <main>
+
+      <section class="section section--accent-purple">
+        <div class="container container--narrow">
+          <div class="section-header is-numbered reveal">
+            <span class="section-index">Blog / Research</span>
+            <h2 class="section-title">vLLM on Ascend: Porting an Open-Source Inference Engine to CANN 8.0.</h2>
+            <div class="blog-post-meta">
+              <span class="badge badge-purple">Research</span>
+              <span class="blog-post-date">April 18, 2026 &middot; 17 min read</span>
+            </div>
+          </div>
+
+          <div class="blog-post-body reveal reveal-delay-1">
+
+            <p class="blog-post-intro">The vLLM community&rsquo;s Ascend adapter is a remarkable piece of open-source engineering &mdash; it maps CUDA kernels to CANN operators with surprisingly low overhead. But the port isn&rsquo;t complete. Here&rsquo;s what we maintain in our fork, what we patched, and what still needs work.</p>
+
+            <h3>Why vLLM?</h3>
+
+            <p>When we started Nypples, we had a choice: build a custom inference engine on MindSpore, or adapt an existing open-source engine. vLLM was the obvious answer. Its PagedAttention memory management, continuous batching, and OpenAI-compatible API server are battle-tested across hundreds of production deployments.</p>
+
+            <p>The vLLM Ascend adapter &mdash; maintained primarily by Huawei engineers with community contributions &mdash; replaces CUDA kernels with CANN (Compute Architecture for Neural Networks) operators. The architecture is clean: a plugin system that intercepts CUDA calls and routes them to CANN equivalents. For most operations (matmul, layer norm, activation functions), the mapping is one-to-one and performs at parity.</p>
+
+            <p>For operations that don&rsquo;t have a direct CANN equivalent &mdash; flash attention, grouped-query attention, and certain fused CUDA kernels &mdash; the adapter falls back to a shim layer that decomposes the CUDA kernel into multiple CANN operators. This works, but the overhead is measurable.</p>
+
+            <h3>Our fork&rsquo;s divergence from upstream</h3>
+
+            <p>We maintain 7 patches on top of the upstream vLLM Ascend adapter (version 0.8.3 as of July 2026). Six of these are already contributed back and merged. The remaining one &mdash; a CANN memory allocator optimization for MoE models &mdash; is in review.</p>
+
+            <p>Here&rsquo;s what we changed:</p>
+
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr><th>Patch</th><th>Status</th><th>Impact</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>KV-cache alignment for MindSpore-trained models</td><td><span class="badge badge-green">Merged</span></td><td>Fixed precision drift on GLM-5.2 after 2K context tokens</td></tr>
+                  <tr><td>Expert rebalancing for MoE gating bias</td><td><span class="badge badge-green">Merged</span></td><td>Even GPU utilization under short-context burst traffic</td></tr>
+                  <tr><td>CANN 8.0 auto-parallel integration</td><td><span class="badge badge-green">Merged</span></td><td>Automatic sharding strategy detection for MoE models</td></tr>
+                  <tr><td>RoCE v2 NIC offload support</td><td><span class="badge badge-green">Merged</span></td><td>39% all-to-all latency reduction via NIC-side collective ops</td></tr>
+                  <tr><td>FP4 weight loading optimization</td><td><span class="badge badge-green">Merged</span></td><td>2.3&times; model loading speed for 4-bit quantized checkpoints</td></tr>
+                  <tr><td>HCCL error recovery improvements</td><td><span class="badge badge-green">Merged</span></td><td>Graceful degradation instead of crash on transient network errors</td></tr>
+                  <tr><td>MoE-aware CANN memory allocator</td><td><span class="badge badge-purple">In Review</span></td><td>12% VRAM reduction for MoE models through expert-aware allocation</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>PagedAttention on Ascend</h3>
+
+            <p>PagedAttention is vLLM&rsquo;s killer feature &mdash; it manages KV-cache memory in non-contiguous blocks, eliminating the memory fragmentation that plagues traditional inference engines. Porting it to Ascend was nontrivial because CUDA&rsquo;s virtual memory management (via <code>cuMemMap</code>) has no direct CANN equivalent.</p>
+
+            <p>The adapter implements PagedAttention using CANN&rsquo;s dynamic memory pool, which achieves similar results through a different mechanism. The performance comparison:</p>
+
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr><th>Metric</th><th>CUDA PagedAttention (A100)</th><th>CANN PagedAttention (Ascend 910C)</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>KV-cache memory overhead</td><td class="mono">2.3%</td><td class="mono">3.8%</td></tr>
+                  <tr><td>Block table lookup latency</td><td class="mono">4.2 &mu;s</td><td class="mono">5.1 &mu;s</td></tr>
+                  <tr><td>Maximum batch size (70B model)</td><td class="mono">256</td><td class="mono">288</td></tr>
+                  <tr><td>Memory fragmentation after 10K requests</td><td class="mono">1.1%</td><td class="mono">2.4%</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p>The CANN implementation has slightly higher memory overhead (+1.5pp) but supports larger batch sizes thanks to the 64 GB HBM2E per card vs. A100&rsquo;s 80 GB but with a wider memory bus. The tradeoff is real but acceptable.</p>
+
+            <h3>The road to full upstream parity</h3>
+
+            <p>We track three remaining gaps between our fork and what we&rsquo;d consider full upstream parity:</p>
+
+            <ol>
+              <li><strong>Speculative decoding.</strong> vLLM supports draft-model speculative decoding on CUDA via <code>cudaStream</code> priority scheduling. CANN supports stream priorities but the adapter hasn&rsquo;t wired them through yet. Target: Q4 2026.</li>
+              <li><strong>FP8 attention kernels.</strong> CANN 8.0 supports FP8 matrix operations, but the attention kernel implementations lag behind CUDA&rsquo;s FlashAttention-3. Huawei is actively working on this. Target: Q1 2027.</li>
+              <li><strong>Multi-node tensor parallelism scaling.</strong> Beyond 8 nodes, HCCL collective operations show scaling inefficiencies that NCCL solved years ago. This is the hardest gap to close because it&rsquo;s a collective communication library problem, not an adapter problem. Target: Q2 2027.</li>
+            </ol>
+
+            <h3>What this means for users</h3>
+
+            <p>If you use the OpenAI Python SDK pointed at our endpoint, you don&rsquo;t see any of this. The API is identical. The patches, the shim layers, the CANN memory allocator &mdash; they&rsquo;re invisible. You get a <code>/v1/chat/completions</code> response with the same JSON schema, the same latency profile, and one important difference: your data never left Italy.</p>
+
+            <p>That&rsquo;s the promise of the vLLM Ascend adapter. Not that Ascend is better than CUDA (it isn&rsquo;t, yet), but that it&rsquo;s good enough that you don&rsquo;t need to care what hardware is underneath. The open-source community has done the hard work of abstracting the silicon away. We&rsquo;re just helping finish the job.</p>
+
+          </div>
+
+          <div class="cta-center reveal">
+            <a href="/blog/" class="btn btn-secondary">
+              <span>&larr; Back to blog</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <div id="footer-root"></div>
+  <script src="/js/nav.js"></script>
+  <script src="/js/pricing-calc.js"></script>
+  <script src="/js/animations.js"></script>
+</body>
+</html>

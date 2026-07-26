@@ -143,7 +143,7 @@ function renderFooter() {
   bottom.className = 'footer-bottom';
   bottom.innerHTML = `
     <span>&copy; 2026 Nypples Industries &mdash; Fictional concept. No real services offered.</span>
-    <span>Trento, Italy &middot; Powered by Huawei Ascend &middot; First European GPU Partner</span>
+    <span>Trento, Italy &middot; Powered by Huawei Ascend &middot; <a href="https://www.linkedin.com/in/davide-modolo/" target="_blank" rel="noopener">Davide Modolo</a></span>
   `;
 
   container.appendChild(bottom);
